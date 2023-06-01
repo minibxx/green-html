@@ -1,0 +1,42 @@
+container{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 30px 50px;
+    margin: 100px;
+    /* align-items: center; */
+}
+
+.imgg{
+    object-fit: cover;
+    object-position: -30px 0px;
+    height: 300px;
+    width: 200px;
+}
+
+.con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px;
+    align-items: flex-start;
+}
+
+.title{
+    font-size: 2rem;
+}
+
+.ex2{
+    width: 1000px; margin:100px auto;
+}
+
+.ex2 > h2{
+
+}
+
+.ex2>list{
+    margin: 0; padding:0;
+    list-style-type: none;
+}
+.ex2.list>li{width:30%;}
