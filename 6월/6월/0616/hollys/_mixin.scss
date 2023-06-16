@@ -1,0 +1,14 @@
+@mixin flex($x, $y, $z){ 
+    display: flex;
+    justify-content: $x;
+    align-items: $y;
+    flex-direction: $z;
+}
+
+@mixin position ($a) {
+    position: $a;
+}
+
+@mixin size {
+    width: 100%;
+}

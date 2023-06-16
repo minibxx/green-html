@@ -1,23 +1,12 @@
 $wid: 1470px;
 
-@mixin flex($x, $y, $z){ 
-    display: flex;
-    justify-content: $x;
-    align-items: $y;
-    flex-direction: $z;
-}
-
-@mixin position ($a) {
-    position: $a;
-}
-
-@mixin size {
-    width: 100%;
-}
+@import "_reset";
+@import "_mixin";
 
 .hd {
     @include flex (space-between, center, row);
-    list-style-type: none;
+    
+    >li {list-style-type: none;}
 
     width: $wid;
     margin: 0 auto;
@@ -43,7 +32,7 @@ article{}
     @include flex(space-between,center, column);
 }
 .menu-t > b{font-size: 30px; line-height: 36.31px; margin-top: 155px;} 
-.menu-t > b:hover{transform : scale(1.2); transition: 1s; transform-origin: 50% 100%;} 
+.menu-t > b:hover{transform : scale(1.1); transition: 1s; transform-origin: 50% 100%;} 
 
 .menu-t > p{font-size: 18px;margin-bottom: 108px;}
 .menu-t > div:nth-of-type(1){

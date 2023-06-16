@@ -1,0 +1,20 @@
+@import "_reset";
+@import "_mixin";
+
+
+.mbs-con > figure {
+    @include reset {}
+
+    $icons : (ic-1,ic-2,ic-3);
+
+    @include flex(space-between, center, column);
+
+    > p{
+        background: #fff url('./img/#{nth($icons,2)}.png') center no-repeat;
+        background-color: white;
+        border-radius: 100px;
+        border: 3px solid #7a7a7a;
+        width: 172px; height: 172px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        @include flex(center,center,row);}
+}
