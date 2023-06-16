@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h2>transform-style: preserve-3d(자손이 z축 사용 가능)</h2>
+        <div class="p-1">
+            <p>
+                <span>홍길동</span>
+            </p>
+        </div>
+        <style>
+            article{
+                width: 100%; height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .p-1{width: 300px; height: 300px;}
+            .p-1 p{
+                width: 100%; height: 100%;
+                border: 5px solid black;
+                transform-style: preserve-3d;
+                /* 자식 요소인 span 태그가 z축을 갖게 됨 */
+                animation: d-1 5s infinite;
+                transform: rotateX(0deg) rotateY(20deg);
+            }
+
+            @keyframes d-1{
+                100% {transform: rotateY(360deg) rotateX(20deg)};
+            }
+
+            .p-1 p span{
+                display: block;
+                width: 100%; height: 100%;
+                background-color: rgba(255,0,0,0.6);
+                transform: translateZ(100px);
+            }
+        </style>
+    </article>
+    <article>
+        <h2>transform-style: preserve-3d(자손이 z축 사용 가능)</h2>
+        <div class="p-2">
+            <p>
+                <span>당신의 이름은?</span>
+                <span>유빈씨~</span>
+            </p>
+        </div>
+        <style>
+            .p-2 {width: 200px; height: 300px;}
+            .p-2 p {
+                width: 100%; height: 100%;
+                transform-style: preserve-3d;
+                position: relative;
+                transition: 1s;
+            }
+            .p-2 p span {
+                position: absolute;
+                left: 0; top: 0;
+                width: 100%; height: 100%;
+            }
+
+            .p-2 p span:nth-child(1){ /* 앞 장 */
+                background-color: orange;
+                color: rgb(255, 255, 255);
+                text-align: center;
+            }
+
+            .p-2 p span:nth-child(2){ /* 뒷 장 */
+                background-color: yellowgreen;
+                transform: translateZ(-10px) rotateY(90deg);
+                /* 뭔진 모르지만 윗줄 주석하면 오렌지 카드는 안보이네요 */
+                color: white;
+                text-align: center;
+                transform-origin: 100% 50%;
+            }
+            
+            .p-2:hover p{ /* 손 올렸을 때 z축으로 600px 빠진 후 180도 회전 */
+                transform: perspective(600px) rotateY(180deg) rotateX(40deg);
+            }
+
+        </style>
+    </article>
+    <article>
+        <!-- <h2> transform-style:preserve-3d</h2> -->
+        <div class="p-3">
+            <p>
+                <span>01</span>
+                <span>02</span>
+                <span>03</span>
+                <span>04</span>
+                <span>05</span>
+                <span>06</span>
+            </p>
+        </div>
+        <style>
+            .p-3{width:200px; height:200px;}
+            .p-3 p{
+                width:100%; height:100%; 
+                transform-style: preserve-3d;
+                position: relative;
+                transition: 1s;
+                transform: rotateX(20deg) rotateY(60deg);
+            }
+            .p-3 p span{
+                position: absolute;
+                left:0; top:0;
+                width:100%; height:100%;          
+                font-size: 40px;
+                color: white;       
+            }
+            .p-3 p span:nth-child(1){
+                background-color: rgba(115, 255, 0, 0.6);
+                transform: translateZ(100px);
+            }
+            .p-3 p span:nth-child(2){
+                background-color: rgba(255, 49, 49, 0.6);
+                transform:  rotateY(90deg) translateZ(100px);
+                /* 돌려놓고 밀면(로테이트 트랜스레이트 순서 변경) 각이 달라짐 */
+            }
+            .p-3 p span:nth-child(3){
+                background-color: rgba(49, 97, 255, 0.6);
+                transform:  rotateY(180deg) translateZ(100px);
+                /* 돌려놓고 밀면(로테이트 트랜스레이트 순서 변경) 각이 달라짐 */
+            }
+            .p-3 p span:nth-child(4){
+                background-color: rgba(185, 8, 255, 0.6);
+                transform: rotateY(270deg) translateZ(100px) ;
+            }
+            .p-3 p span:nth-child(5){
+                background-color: rgba(255, 8, 131, 0.6);
+                transform: rotateX(90deg) translateZ(100px) ;
+            }
+            .p-3 p span:nth-child(6){
+                background-color: rgba(238, 255, 0, 0.6);
+                transform: rotateX(-90deg) translateZ(100px) ;
+            }
+
+            .p-3 p {animation: d-3 5s linear infinite;}
+
+            @keyframes d-3{
+                0% {transform: rotateX(0deg) rotateY(0deg);}
+                100% {transform: rotateX(360deg) rotateY(360deg);}
+            }
+        </style>
+    </article>
+    <article>
+        <div class="p-4">
+            <p>
+                <span>01</span>
+                <span>02</span>
+                <span>03</span>
+            </p>
+        </div>
+        <style>
+            .p-4{
+                width: 400px; height: 150px;
+                 perspective: 900px; 
+                 /* 최상위 요소에 perspective(원근,,, 인 듯) */
+            }
+            .p-4 p{
+                width: 100%; height: 100%; 
+                position: relative;
+                transform-style: preserve-3d;
+            }
+            .p-4 p span{
+                position: absolute; left: 0; top: 0;
+                width: 100%; height: 100%;
+            }
+            .p-4 p span:nth-child(1){
+                background-color: rgb(240, 64, 64);
+                transform: rotateY(0deg) translateZ(200px);
+            }
+            .p-4 p span:nth-child(2){
+                background-color: rgb(81, 81, 255);
+                transform: rotateY(120deg) translateZ(200px);
+            }
+            .p-4 p span:nth-child(3){
+                background-color: rgb(80, 207, 80);
+                transform: rotateY(240deg) translateZ(200px);
+            }
+            .p-4 p{
+                /* transform: rotateX(-10deg); */
+                animation: d-4 5s infinite;
+            }
+            @keyframes d-4 {
+                0%{ transform: rotate3d(0,200,0,0deg);}
+                30%{ transform: rotate3d(0,200,0,120deg);}
+                60%{ transform: rotate3d(0,200,0,240deg);}
+                100%{ transform: rotate3d(0,200,0,360deg);}
+            }
+
+        </style>
+    </article>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table{
+            border-collapse: collapse; /* 바깥 테두리 없어짐 */
+            width: 500px;
+        }
+        th, td{
+            border:1px solid blue; 
+            border-width:1px 0;  /* 세로 줄 없애기 */          
+            padding:10px;
+            text-align: center;
+        }
+        td:nth-of-type(1), td:nth-of-type(3) {width:150px;}
+        th{background-color: yellowgreen;}
+        caption {
+            text-align: left; 
+            padding: 20px 0; 
+            font-size: 2rem;
+        }
+        tr:nth-of-type(2n) td{background-color: #eee;} /* 짝수줄만 백그라운드 넣기 */
+    </style>
+
+    <table border="1"  cellscapcing="10" cellpadding="10">
+        <caption>로체에 사는 사람들</caption>
+        <thead>
+            <tr>
+                <th>이름이 뭔가요</th><th>몇살이신가요</th><th>여잔가요 남잔가요</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>민유빈</td><td>23</td><td>여자</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>신경준</td><td>3</td><td>남자</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>물고기</td><td>1</td><td>모름</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">페이징</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <br>
+    <table border="1">
+        <tr>
+            <td colspan="2">1</td> <!-- <td>2</td> --> <td rowspan="3">3, 6, 9</td>
+            <!-- 가로 두 칸 병합, 병합된 2는 삭제 -->
+            <!-- 세로 세 칸 병합, 병합된 6,9 는 삭제 -->
+        </tr>
+        <tr>
+            <td>4</td> <td>5</td> <!-- <td>6</td> -->
+        </tr>
+        <tr>
+            <td>7</td> <td>8</td> <!-- <td>9</td> -->
+        </tr>
+    </table>
+<br>
+    <fieldset>
+        <legend>form</legend>
+        <!-- 놓쳤을 때 넘겨서 확인할 수 있는 form 태그 사용 -->
+        <form action="https://www.naver.com/" method="get">
+        <!-- submit 버튼 누르면 네이버 페이지로 이동 -->
+        <!-- form태그에는 스타일 주지 말 것, 백에서 변경될 수 있으니 -->
+            <ul>
+                <li>
+                    <label for="iid">아이디</label>
+                    <input id="iid" type="text" name="id" 
+                    placeholder="6문자로 입력" 
+                    required 
+                    maxlength="5"
+                    readonly>
+                </li>
+                <li>
+                    <label>비밀번호</label>
+                    <input type="pw" name="pw">
+                </li>
+                <li>
+                    <label>이메일</label>
+                    <input type="email" name="email">
+                </li>
+                <li>
+                    <label>연락처</label>
+                    <input type="tel" name="tel">
+                </li>
+                <li>
+                    <label>검색</label>
+                    <input type="search" name="search">
+                </li>
+                <li>
+                    <label>숫자</label>
+                    <input type="number" name="number" value="1" min="1" max="5">
+                </li>
+                <li>
+                    <label>색상</label>
+                    <input type="color" name="color">
+                </li>
+                <li>
+                    <label>날짜</label>
+                    <input type="date" name="date" value="2023-06-08">
+                    <input type="month" name="month" id="">
+                    <input type="time" name="time" id="">
+                    <input type="datetime-local" name="all" id="">
+                </li>
+                <li>
+                    <label>진행바</label>
+                    <progress value="30" max="100"></progress>
+                </li>
+                <li>
+                    <label">파일</label>
+                    <input type="file" name="file">
+                </li>
+                <li>
+                    <label">성별</label>
+                    <input type="radio" name="gender" checked> 남
+                    <input type="radio" name="gender"> 여
+                </li>
+                <li>
+                    <label">설문</label>
+                    <input type="checkbox" name="cl" checked> 동의합니다
+                    <input type="checkbox" name="cl"> 동의합니다
+                </li>
+                <li>
+                    <label">국적</label>
+                    <input list="a">
+                    <datalist id="a">
+                        <option value="korea"></option>
+                        <option value="india"></option>
+                        <option value="greece"></option>
+                    </datalist>
+                </li>
+                <li>
+                    <label>지역</label>
+                    <select>
+                        <optgroup label="수도권">
+                            <option>서울</option>
+                            <option selected>인천</option>
+                            <option>경기</option>
+                        </optgroup>
+                    </select>
+                </li>
+                <li>
+                    <label>소개</label>
+                    <textarea cols="50" rows="5"></textarea>
+                </li>
+                <li>
+                    <button>버튼</button>
+                    <button>날 눌러보세요</button>
+                </li>
+                <li>
+                    <input type="submit" value="저장"> 
+                    <input type="reset" value="취소"> 
+                    <!-- <input type="image" src="./image/02.jpg"> -->
+                </li>
+            </ul>
+        </form>
+    </fieldset>
+    <br>
+
+  
+    <style>
+        li{padding: 15px 0; border-bottom: 1px solid #ddd;}
+        label{display: inline-block; width: 130px;}
+    </style>  
+</body>
+</html>
+
+<!-- 인풋 이름은 "저장"으로 설정해줌 -->
+<!-- value="홍길동" 해두면 사용자가 쓴 것처럼 미리 홍길동 들어가있음 -->

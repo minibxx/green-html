@@ -1,0 +1,25 @@
+:root {
+  --width:1000px;
+}
+
+header {
+  padding: 20px 0;
+  width: 2000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+header h1 {
+  font-size: 2rem;
+}
+header nav a {
+  padding: 0 20px;
+  color: red;
+}
+
+main {
+  width: 2000px;
+  margin: 0 auto;
+}/*# sourceMappingURL=nesting.css.map */

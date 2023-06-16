@@ -1,0 +1,23 @@
+* {box-sizing: border-box; }
+
+html,body {
+    margin:0; 
+    font-size: 16px;
+}
+
+h1,h2,h3,p {margin:0;}
+
+ul,li {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0;
+}
+
+img {vertical-align: top;}
+
+a {
+    text-decoration: none;
+    color: inherit; /* 부모의 값을 그대로 상속받겠다는 뜻 */
+}
+
+a, b, i, em, strong, span {display: inline-block;} 

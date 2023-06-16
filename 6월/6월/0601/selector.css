@@ -1,0 +1,102 @@
+.hd-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+    width: 400px;
+    box-shadow: 2px 2px 2px lightgray;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+.You{
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    /*letter-spacing: 1px;*/
+}
+
+.You-logo{
+    color: white;
+    background-color: red;
+    width: 30px;
+    height: 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.hd-con{
+    display: flex;
+    flex-direction: row;
+}
+
+.hd-icon{
+    padding : 0 10px;
+}
+
+.hd-mic{
+    padding: 10px 20px;
+}
+.spans{
+    margin-top: 20px;
+}
+.sel, .sel-bl{
+    background-color: rgb(235, 235, 235);
+    height: 15px;
+    padding: 3px 7px;
+    margin: 20px 5px;
+    border-radius: 7px;
+}
+
+.sel-bl{
+    color: white;
+    background-color: rgb(56, 56, 56);
+}
+
+main, .main-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-con{
+    width: 20vw;
+    height: 300px;
+    margin: 20px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.main-subtitle{
+    font-size: 12px;
+    padding: 3px 0;
+}
+
+
+.main-profile{
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.main-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.thum{
+    width: 20wh;
+    height: 150;
+    border-radius: 10px;
+}

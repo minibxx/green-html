@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h2>체크박스 활용</h2>
+        <div class="check">
+            <input id="c" type="checkbox" name="check">
+            <label for="c"><span></span></label>
+        </div>
+    </article>
+
+
+    <style>
+        article{width: 50%; margin: 100px auto;}
+        
+        article{
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+        article>h2{
+            margin: 0 0 15px 0;
+        }
+        .check input{
+            display: none;
+            /* opacity: 0; */
+            /* visibility: hidden; */
+        }
+            /* 체크박스 안보이게 하는 코드 세 가지, 
+            디스플레이 논은 아예 삭제, 나머지는 코드 숨김 */
+        
+        .check label{
+            display: block;
+            width:60px; height:26px;
+            background-color: #aaa;
+            border-radius: 26px;
+            /* 버튼 배경이라고 해야될까 뭔지 모르겠당 */
+        }
+
+        .check label span{
+            display: block;
+            width:22px; height:22px;
+            background-color: #fff;
+            border-radius: 22px;
+            transform: translate(2px,2px);
+            transition: .5s;
+            /* 움직이는 동그란 버튼 */
+        }
+        
+
+        .check label:hover{
+            background-color: red;
+        }
+
+        .check label:active{
+            background-color: green;
+        }
+
+        .check input:checked + label{
+            background-color: red;
+        }
+
+        .check input:checked + label>span {
+            transform: translate(36px, 2px);
+        }
+    </style>
+
+    <article>
+        <h2>radio 활용</h2>
+        <div class="radio">
+            <input id="d" type="radio" name="slide">
+            <input id="e" type="radio" name="slide">
+
+            <label for="d">선택1</label>
+            <label for="e">선택2</label>
+            
+            <div>
+                <figure>
+                    <img src="./img/01.jpg">
+                    <img src="./img/02.jpg">
+                </figure>
+            </div>
+        </div>
+    </article>
+    <style>
+        .radio label{
+            display: inline-block;
+            background-color: yellowgreen;
+            padding: 15px;
+        }
+        .radio div{
+            width: 400px; 
+            overflow: hidden; 
+            /* img 보여지는 자리 지정해주고 나머지 숨기기 */
+        }
+        .radio div figure{display: flex; transition: 1s;}
+        .radio div img{width: 100%;}
+
+
+        .radio input:nth-of-type(1):checked ~ div>figure{
+            transform: translateX(0%);
+        }
+        /* 형제요소 중에 있는 div>figure 다 가리킴 */
+
+        .radio input:nth-of-type(2):checked ~ div>figure{
+            transform: translateX(-100%);
+        }
+        .radio input{display: none;}
+    </style>
+    <article>
+        <p>
+            <div class="login">
+                <input type="text" name="id" 
+                placeholder="아이디" required>
+            </div>
+    
+            <div class="login">
+                <input type="text" name="pw" 
+                placeholder="비밀번호" required>
+            </div>
+
+        </p>
+        <div class="box">
+                <div class="checkbox">
+                    <input id="cc" type="checkbox" name="check">
+                    <label for="cc"><span></span></label>
+                 </div>
+            <p>로그인 상태유지</p>
+        </div>
+        <button>로그인</button>
+    </article>
+    <style>
+        p{
+            
+        }
+        .login input::placeholder{
+            color: gray;
+            font-size: 5px;
+        }
+        .login > input{
+            width: 100%;
+            margin-bottom: 5px;
+            /* height: 30px; */
+            box-sizing: border-box;
+        }
+      
+        .box{
+            display: flex;
+            margin: 5px 0 10px 0;
+            vertical-align: middle;
+        }
+
+        .box>p{
+            margin: 0 5px;
+            font-size: 6px;
+        }
+
+        .box input{display: none;}
+        /* 체크 박스를 가려둠, id와 label 값은 새로운 걸로 줘야 적용되서 움직임 */
+
+        .box label{
+            display: block;
+            width:20px; height:12px;
+            background-color: #aaa;
+            border-radius: 30px;
+        }
+
+        .box label span{
+            display: block;
+            width:8px; height:8px;
+            background-color: #fff;
+            border-radius: 15px;
+            transform: translate(2px,2px);
+            /* 동그라미가 label 상단에 딱 붙어 있는거 방지하려고 위치 조정한 것 */
+            transition: 1s; 
+            /* 트랜지션이 스팬에 있어야 스무스하게 좌우 움직임 */
+        }
+        
+        .box input:checked + label>span{ 
+            transform: translate(10px,2px); 
+            /* 체크 선택/해제할 때 움직이는 위치 코드 */
+        }
+        .box label:hover{
+            background-color: red;
+        }
+ 
+        button{
+            background-color: black;
+            color: white;
+            width: 100%;
+            border-radius: 3px;
+        }
+    </style>
+</body>
+</html>

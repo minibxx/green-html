@@ -1,0 +1,206 @@
+@import url(./reset.css);
+
+article{
+    width: 50%;
+    margin: 100px auto;
+    position: relative;
+}
+
+article>p{
+    white-space: pre-line;
+    background-color: rgb(180, 220, 255);
+    padding: 30px;
+}
+
+.p-1{
+    position: relative;
+    left: -50px;
+    top: -50px;
+    border: 2px solid red;
+}
+
+.p-1>a{
+    position: absolute;
+    top: 0; right: 0;
+    background-color: black;
+    color: white;
+    font-size: 50px;
+
+    width: 40px; 
+    height: 40px;
+    line-height: 30px;
+    /* 줄 간격 때문에 + 위치가 블랙 박스 안에서 막 바뀜 
+    검정 박스 크기만큼 -> 적정한 줄 간격(30px)  주기 */
+    text-align: center;
+    transition: width 1s, height 1s;
+}
+article>div>img{
+    width: 100%;
+}
+
+.p-1 > a:hover{
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    /* 커서를 올렸을 때 상태 변화(동작) */
+    transition: width 1s, height 1s;
+    /*a 에 커서 올렸다 뗄 때 모두 트랜지션, 단축 프로퍼티*/
+}
+
+.p-2{
+    background-color: rgb(255, 255, 144);
+    color: red;
+    padding: 60px;
+    border-radius: 30px;
+
+    position: absolute;
+    right: 0; 
+    bottom: 0;
+    /* 부모에 크기가 없어서 브라우저 기준 우측 하단에 생성됨. 
+    부모(body)에 주면 문서 우측 하단에 생성, 해결됨 --> 이게 뭐노*/
+}
+
+.p-3{
+    background-color: rgb(0, 0, 0);
+    width: 10%; 
+    height: 100%;
+    position: fixed;
+    left: 0; 
+    top: 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+}
+
+.p-3>a{
+    color: white;
+}
+
+/* .p-4{
+    display: flex;
+}
+.p-4:nth-child(1){
+    width: 30%;
+}
+.p-4:nth-child(2){
+    width: 70%;
+}
+.p-4:nth-child(2) p{
+    position: sticky;
+    top: 100px;
+}
+.p-4 div:nth-child(2) img{
+    width: 100%;
+}  */
+
+.p-4 {display: flex; border: 1px solid black;}
+.p-4 div:nth-child(1){width:30%;}
+.p-4 div:nth-child(2){width:70%;}
+.p-4 div:nth-child(2) p{
+    position: sticky;
+    top: 100px;
+    bottom: 0;
+}
+.p-4 div:nth-child(2) img{width:100%;}
+.name{
+    border: 1px solid rgb(255, 0, 0);
+    margin: 2px;
+}
+
+.ex {}
+.ex > div {
+    width: 30%;
+    position: relative;
+    border-radius: 20px;
+    overflow : hidden; 
+    /* radius주고 나서 자식이미지 넘쳐버린 부분 숨겨주는 명령 */
+    transition: 
+}
+
+.ex > div > img{
+    width: 100%;
+    vertical-align: top;
+}
+
+.ex > div > p{
+    background-color: rgb(255, 0, 0);
+    padding: 10px 20px;
+    color: white;
+    position: absolute;
+    left: -150px;
+    /* 호버 없는 버전, 손 올리기 전에 똑같이 있는데 
+    left로 이동해서 보여지지는 않게 해주기!
+    (위에 오버플로우 히든 해놔서 안보이는 거임) */
+    top: 0;
+    transition: 1s;
+}
+
+.ex > div:hover > p{
+    background-color: rgb(255, 0, 0);
+    padding: 10px 20px;
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 1s;
+}
+
+/* - - - - -  */
+.pop-up{
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    
+}
+
+.pop-up>div:nth-of-type(1){
+    background-color: red;
+    height: 20%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.pop-up>div:nth-of-type(2){
+    background-color:antiquewhite;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-5{
+    background-color: rgb(48, 48, 48);
+    width: 30% auto;
+    height: 300px;
+    position: relative;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+}
+
+.p-5>div:nth-of-type(2){
+    position: absolute;
+    background-color: rgb(12, 148, 12);
+    right: 5px;
+    top: -10px;
+
+    width: 350px;
+    height: 40px;
+    border-radius: 30px;
+    text-align: center;
+    padding-top : 5px;
+}

@@ -1,0 +1,51 @@
+@import url(./reset.css);
+
+article{
+    width: 1400px;
+    border: 1px solid black;
+    margin: 30px;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.title>p{
+    margin-top: 20px;
+}
+
+.title>b{
+    font-size: 30px;
+}
+.thum{
+    width: 260px;
+    height: 180px;
+}
+
+.main-ct{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    width: 550px;
+    margin: 20px;
+}
+
+.texts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.point{
+    font-size: 20px;
+} 
