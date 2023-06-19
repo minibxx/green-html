@@ -1,0 +1,22 @@
+
+$mobile : ('max-width:480px', 'max-width:767px');
+$tablet : ('min-width:768px', 'max-width:1279px');
+$pc : ('min-width:1280px');
+
+$dp : 'max-width:480px';
+
+@mixin device($dp){
+    @media ($dp){
+        @content;
+    }
+}
+
+@include device(nth($mobile,2)){   
+    body{background-color: rgb(21, 255, 0);}
+}
+
+@include device(nth($mobile,1)){ 
+    
+    body{background-color: red;}
+}
+

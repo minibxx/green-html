@@ -1,0 +1,95 @@
+@import url('./reset.css');
+
+body{position: relative;}
+
+figure {height: 850px;}
+figure > video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+}
+
+.nav-b{
+    width: 80%;
+    display: flex;
+    position: fixed;
+    left: 0; top: 2%;
+    justify-content: space-between ;
+    margin: 0 10%;
+}
+.nav-b > div{
+    font-size: 2rem;
+    color : white; 
+    font-family: 'Pretendard-Black';
+}
+.nav-b > ul{
+   display: flex;
+}
+
+.nav-b > ul > li{
+    list-style-type: none;
+    font-size: 18px;
+    color : white;
+    padding: 0 40px;
+}
+
+header > p{
+    position: absolute;
+    left: 10%; top: 35%;
+    font-size: 120px;
+    color: white;
+    font-weight: 900;
+    text-shadow: 5px 5px 0px #fe5e00;
+    font-family: 'Pretendard-ExtraBold';
+    font-style: oblique;
+}
+
+header > p > span{
+    text-shadow : none;
+    color: #fe5e00;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 350px;
+    align-items: center;
+    margin: 0 10%;
+}
+
+.top > div > p{
+    font-size: 27px;
+    margin-top: 20px;
+}
+.top > div > p:nth-of-type(2){color:#fe5e00}
+.top > img{
+    width: 50%;
+    animation: rhkdus 1s infinite alternate;
+    transition: 0.5s;
+}
+
+@keyframes rhkdus{
+    0% {transform: translateY(0%);}
+    100% {transform: translateY(5%);}
+}
+
+.title{
+    color: #fe5e00;
+    font-size: 90px;
+    font-family: 'Pretendard-ExtraBold';
+    font-style: oblique;
+    margin-left: 10%;
+}
+
+.a1-con{
+    width: 20%;
+}
+
+.ai-con > img{
+    width: 200px;
+    object-fit: cover;
+    border: 10px solid yellow;
+}

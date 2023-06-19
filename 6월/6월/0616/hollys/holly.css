@@ -6,6 +6,16 @@ body {
   font-family: "Segoe UI", sans-serif;
 }
 
+@media (max-width: 767px) {
+  body {
+    background-color: green;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    background-color: red;
+  }
+}
 .hd {
   display: flex;
   justify-content: space-between;
@@ -39,24 +49,20 @@ body {
   align-items: center;
   flex-direction: column;
 }
-
 .menu-t > b {
   font-size: 30px;
   line-height: 36.31px;
   margin-top: 155px;
 }
-
 .menu-t > b:hover {
   transform: scale(1.1);
   transition: 1s;
   transform-origin: 50% 100%;
 }
-
 .menu-t > p {
   font-size: 18px;
   margin-bottom: 108px;
 }
-
 .menu-t > div:nth-of-type(1) {
   border-bottom: 1px solid black;
   width: 98px;
@@ -74,12 +80,10 @@ body {
   margin: 0 auto;
   padding-bottom: 155px;
 }
-
 .content4 > div:hover {
   transform: translateY(-5px);
   animation: move 0.5s infinite alternate;
 }
-
 @keyframes move {
   0% {
     transform: translateY(0px);
@@ -88,17 +92,13 @@ body {
     transform: translateY(-10px);
   }
 }
+
 .mbs {
   width: 100%;
   height: 788px;
   background-image: url(./img/img-sec02.png);
   background-repeat: no-repeat;
   position: relative;
-}
-.mbs .mbs-tt {
-  position: absolute;
-  right: 10%;
-  bottom: 20%;
 }
 .mbs .mbs-list {
   display: flex;
@@ -131,21 +131,22 @@ body {
   align-items: center;
   flex-direction: row;
 }
-
-.mbs-tt > div > div {
+.mbs .mbs-tt {
+  position: absolute;
+  right: 10%;
+  bottom: 20%;
+}
+.mbs .mbs-tt > div {
+  font-size: 20px;
+}
+.mbs .mbs-tt > div > div {
   margin-top: 20px;
 }
-
-.mbs-tt > div > b {
+.mbs .mbs-tt > div > b {
   font-size: 35px;
 }
-
-.mbs-tt > div > b > span {
+.mbs .mbs-tt > div > b > span {
   color: #D91226;
-}
-
-.mbs-tt > div {
-  font-size: 20px;
 }
 
 .mbs-con > figure > figcaption > b {
@@ -153,7 +154,6 @@ body {
   font-size: 20px;
   display: block;
 }
-
 .mbs-con > figure > figcaption > p {
   text-align: center;
   font-size: 18px;

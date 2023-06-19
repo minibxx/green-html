@@ -2,19 +2,55 @@
 @import "_mixin";
 
 
-.mbs-con > figure {
-    @include reset {}
+    .mbs-tt{
+        @include position(absolute);
+        right: 10%; bottom: 20%;
+        
+    }
+    .mbs-list {@include flex(space-between, center, row);}
+    .mbs-con {
+        @include flex(space-between, center, row);}
+    .mbs-con > figure {
 
-    $icons : (ic-1,ic-2,ic-3);
+        @include flex(space-between, center, column);
 
-    @include flex(space-between, center, column);
+        > p{
+            background-color: white;
+            border-radius: 100px;
+            border: 3px solid #7a7a7a;
+            width: 172px;
+            height: 172px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            @include flex(center,center,row);}
 
-    > p{
-        background: #fff url('./img/#{nth($icons,2)}.png') center no-repeat;
-        background-color: white;
-        border-radius: 100px;
-        border: 3px solid #7a7a7a;
-        width: 172px; height: 172px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        @include flex(center,center,row);}
+        $icons : (ic-1,ic-2,ic-3);
+
+        &:nth-of-type(1) > p{
+            background: white url('./img/#{nth($icons)}.png') center no-repeat;
+        }
+        
+        $icons : (1: ic-1,2: ic-2,3: ic-3);
+        @each $number, $name in $icons{
+    
+            &:nth-of-type(#{$number}) > figure > p{
+                background: white url('./img/#{nth($name)}.png') center no-repeat;
+            }
+        }
+
+    }
+
+.mbs-tt > div > div {margin-top: 20px;}
+.mbs-tt > div > b {font-size: 35px;}
+.mbs-tt > div > b > span{color: #D91226;}
+.mbs-tt > div {font-size: 20px;}
+
+.mbs-con > figure > figcaption > b {
+    text-align: center;
+    font-size: 20px;
+    display: block;
+}
+.mbs-con > figure > figcaption > p {
+    text-align: center;
+    font-size: 18px;
+    width: 200px;
 }

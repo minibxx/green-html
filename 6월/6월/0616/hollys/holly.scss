@@ -2,6 +2,7 @@ $wid: 1470px;
 
 @import "_reset";
 @import "_mixin";
+@import "_media";
 
 .hd {
     @include flex (space-between, center, row);
@@ -27,38 +28,35 @@ $wid: 1470px;
     padding-top: 100px;
 }
 
-article{}
 .menu-t {
     @include flex(space-between,center, column);
-}
-.menu-t > b{font-size: 30px; line-height: 36.31px; margin-top: 155px;} 
-.menu-t > b:hover{transform : scale(1.1); transition: 1s; transform-origin: 50% 100%;} 
-
-.menu-t > p{font-size: 18px;margin-bottom: 108px;}
-.menu-t > div:nth-of-type(1){
-    border-bottom: 1px solid black;
-    width: 98px;
-    align-items: center;
-    margin: 20px 0;
-}
+    >b{font-size: 30px; line-height: 36.31px; margin-top: 155px;}
+    >b:hover{transform : scale(1.1); transition: 1s; transform-origin: 50% 100%;}
+    >p{font-size: 18px;margin-bottom: 108px;}
+    >div:nth-of-type(1){
+        border-bottom: 1px solid black;
+        width: 98px;
+        align-items: center;
+        margin: 20px 0;}
+} 
 .content4 {
     @include flex(space-between, center, roW );
     width: $wid; 
     text-align: center;
     margin: 0 auto;
     padding-bottom: 155px;
+    > div:hover {
+        transform: translateY(-5px);
+        animation: move 0.5s infinite alternate; 
+    }
+    @keyframes move{
+        0% {transform: translateY(0px);}
+        100% {transform: translateY(-10px);}
+    }
 } 
 
-.content4 > div {}
-.content4 > div:hover {
-    transform: translateY(-5px);
-    animation: move 0.5s infinite alternate; 
-}
 
-@keyframes move{
-    0% {transform: translateY(0px);}
-    100% {transform: translateY(-10px);}
-}
+
 
 .mbs{
     width: 100%;
@@ -67,40 +65,45 @@ article{}
     background-repeat: no-repeat;
     @include position(relative);
     
-    .mbs-tt{
-        @include position(absolute);
-        right: 10%; bottom: 20%;
-        
-    }
     .mbs-list {@include flex(space-between, center, row);}
     .mbs-con {
-        @include flex(space-between, center, row);}
-    .mbs-con > figure {
-        margin: 0 40px 0 0;
-        
-        @include flex(space-between, center, column);
-
-        > p{
-            background-color: white;
+        @include flex(space-between, center, row);
+        > figure {
+            margin: 0 40px 0 0;
+            @include flex(space-between, center, column);
+            > p{
+                background-color: white;
             border-radius: 100px;
             border: 3px solid #7a7a7a;
             width: 172px;
             height: 172px;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             @include flex(center,center,row);}
+        } 
+    }
+    .mbs-tt{
+        @include position(absolute);
+        right: 10%; bottom: 20%;
+        > div {
+            font-size: 20px;
+            > div {margin-top: 20px;}
+            > b {
+                font-size: 35px;
+                > span{color: #D91226;}
+            }
+        }
     }
 }
-.mbs-tt > div > div {margin-top: 20px;}
-.mbs-tt > div > b {font-size: 35px;}
-.mbs-tt > div > b > span{color: #D91226;}
-.mbs-tt > div {font-size: 20px;}
-.mbs-con > figure > figcaption > b {
-    text-align: center;
-    font-size: 20px;
-    display: block;
-}
-.mbs-con > figure > figcaption > p {
-    text-align: center;
-    font-size: 18px;
-    width: 200px;
+
+.mbs-con > figure > figcaption{
+    > b {
+        text-align: center;
+        font-size: 20px;
+        display: block;}
+    > p {
+        text-align: center;
+        font-size: 18px;
+        width: 200px;
+    }
+
 }
