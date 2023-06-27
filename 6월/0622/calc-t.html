@@ -84,28 +84,26 @@
         </ul>
         <p>당신의 관심분야는 <code>코딩</code>입니다(<code>100</code>점)</p>
     </article>
-
+   
     <script>
         let b1 = '연애',
             b2 = '미디어',
             b3 = '코딩',
             
             a1 = 370,
-            a2 = 80,
+            a2 = 810,
             a3 = 100;
 
-            let n = 0;
+            // let n = 0; // 변수 n 선언하고 초기화
 
-            if(n < a1){ n = a1; }
-            if(n < a2){ n = a2; }
-            if(n < a3){ n = a3; }
+            // if(n < a1){ n = a1; }
+            // if(n < a2){ n = a2; }
+            // if(n < a3){ n = a3; }
         
-            console.log( n )
+            // console.log( n ) //a123 비교해서 370 콘솔에 출력
             
-            console.log( Math.max(a1,a2,a3) )
+            // console.log( Math.max(a1,a2,a3) ) // 최대값 구하는 코드
             
-
-
         // const elLi = document.querySelector('li:nth-of-type(1)'),
         //       elCode = elLi.querySelector('code:nth-of-type(1)');
 
@@ -123,24 +121,20 @@
               codeNum[1].innerText = a2;
               codeNum[2].innerText = a3;
               
+              const maxNum = Math.max(a1,a2,a3);
 
-              a1 > a2
+              if(maxNum === a1){
+                result[0].innerText = b1;
+                result[1].innerText = a1;
+              }else if(maxNum === a2){
+                result[0].innerText = b2;
+                result[1].innerText = a2;
+              }else{
+                result[0].innerText = b3;
+                result[1].innerText = a3;
+              }
 
-            //   결과
-              result[0].innerText = b1;
-              result[1].innerText = a1;
-
-
-
-
-
-
-
-
-
-
-
-    </script>
+     </script> 
 
     
     

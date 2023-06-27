@@ -59,15 +59,26 @@
         elDd.innerHTML = tag;
     </script>
 
-    <div class="list"></div>
+    <div class="list">
+    </div>
+    <script>
+        const photo2 = ['./img1.jpg','./img2.jpg','./img3.jpg'];
+        const elList2 = document.querySelector('.list');
+
+        photo2.forEach(function(v,k){
+            elList2.innerHTML += `<img src="${v}"></img>`;
+        });
+    </script>
+
+
 
     <script>
-        let photo = ['./img1.jpg','./img2.jpg','./img3.jpg']
+        let photo = ['./img1.jpg','./img2.jpg','./img3.jpg'];
         let imgHTML = '';
         const elList = document.querySelector('.list');
 
         photo.forEach(function(v,k){
-            imgHTML += `<img src="${v}">`;
+            imgHTML += `<img src="${v}"></img>`;
         })
 
         elList.innerHTML = imgHTML;
