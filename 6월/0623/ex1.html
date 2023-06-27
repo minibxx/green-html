@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let html = 90, css = 100, js=10;
+        // let total = 0;
+        // total = html + css + js;
+
+        // if(total<210){
+        //     alert('불합격입니다');
+        // }else{
+        //     alert('합격입니다');
+        // }
+
+
+        // let html = 50, css = 23, js=10;
+        // let avg = html + css + js / 3;
+        
+        // if(90<=avg){
+        //     alert('A등급');
+        // }else if (80<=avg<90){
+        //     alert('B등급');
+        // }else{
+        //     alert('C등급');
+	    // }
+
+
+    /*     let age = prompt('당신의 나이는 몇 살?');
+        let text;
+
+        if(age>19){
+            text = '어서오세유';
+        }else{
+            text = '이놈 !';
+        }
+        console.log(text); */
+        let a = [10,50,800]; 
+
+        a[2] = 1000; //배열 뒤 2자리 (800 있는 곳)에 1000 넣기
+        console.log(a) //하면 배열[10, 50, 1000] 출력됨
+
+        let total=0; //변수 선언
+
+        a.forEach(function(v,k){ 
+                total += v;
+                            if(v==50){
+                            console.log(`값 50의 키는 ${k}`)
+                        } //세 번 돌고 빠져나감..?               
+        });
+        console.log(total);        
+    </script>
+    
+</body>
+</html>

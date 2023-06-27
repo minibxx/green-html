@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article class="at"> <!-- 클래스 꼭 줘야 아래서 사용 가능 -->
+        <h2>출석부 (<code></code>)</h2>
+        <p>
+            <input type="text"> 
+            <button>저장</button>
+        </p>
+        <ul>
+        </ul>
+    </article>
+    <script>
+        const elText = document.querySelector('.at input'),
+              elButton = document.querySelector('.at button'),
+              elUl = document.querySelector('.at ul'),
+              elLen = document.querySelector('.at code');
+
+              let data = [];
+
+              elButton.onclick = function(){ 
+                //값이 비어있으면 추가 안되게 하는 if 문
+                if(elText.value != ''){
+                    data.push(elText.value);
+                    
+                    ulTag=""; //undefinded 방지용 ""
+                    data.forEach(function(name){
+                        ulTag += `<li> ${name}</li>`;
+                    })
+                    elUl.innerHTML = ulTag;
+                    elLen.innerText = data.length;
+                }
+            }
+    </script>
+    
+    <article class="photo">
+        <h2> 이미지 등록 <button>추가</button> </h2>
+        <ul>
+            <!-- <li><img src="./img/01.jpg"></li> -->
+        </ul>
+    </article>
+
+    <script>
+        const elPhotoBtn = document.querySelector('.photo button'),
+              elPhotoUl = document.querySelector('.photo ul');
+            
+        let imgs = ['./img1.jpg', './img2.jpg', './img3.jpg'];
+        let photoTag, photoNum = 0;
+
+        elPhotoBtn.onclick = function(){
+            if(photoNum != imgs.lenth){
+                photoTag = `<li><img src="${imgs[photoNum]}"></li>`;
+                elPhotoUl.innerHTML += photoTag;
+                photoNum++;
+            }else{
+                elert('이미지가 없습니다!')
+            }
+            const elPhotoLi = document.querySelectorAll('.photo li');
+
+            elPhotoLi.forEach(function(v,k){
+                elPhotoLi[k].onclick=function(){
+                    alert(k);
+                    console.log(event.target);
+                }
+            })
+        }
+        
+
+    </script>
+</body>
+</html>

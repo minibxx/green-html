@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // new Array(),[] ->선언 방식
+        // key : valse; ->값의 형식
+        // - 값을 이용하려면 key를 사용해야함 
+
+        let a = [10,50,800]; 
+
+            a[2] = 1000;
+            console.log(a)
+            // console.log(a[1])
+            // console.log(a.length);
+
+            let total=0;
+
+            a.forEach(function(v,k){ 
+                total += v;                
+            });
+            console.log(total);
+    </script>
+   
+   <dl>
+    <!-- <div>
+        <dt>이름</dt>
+        <dd></dd>
+    </div>
+    <div>
+        <dt>이름</dt>
+        <dd></dd>
+    </div>
+    <div>
+        <dt>이름</dt>
+        <dd></dd>
+    </div> -->
+</dl>
+    <script>
+        let name = ['해주','유림','지예'];
+        const elDd = document.querySelector('dl');
+
+        let tag = '';
+        name.forEach(function(v,k){
+            
+            if('지예' !=v){
+                tag +=  `<div>
+                            <dt>이름</dt>
+                            <dd>${v}</dd>
+                        </div>`;
+            }
+        });
+
+        elDd.innerHTML = tag;
+    </script>
+
+    <div class="list"></div>
+
+    <script>
+        let photo = ['./img1.jpg','./img2.jpg','./img3.jpg']
+        let imgHTML = '';
+        const elList = document.querySelector('.list');
+
+        photo.forEach(function(v,k){
+            imgHTML += `<img src="${v}">`;
+        })
+
+        elList.innerHTML = imgHTML;
+    </script>
+
+    
+</body>
+</html>
