@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h2>포트폴리오</h2>
+        <p class="btns">
+            <!-- <button>디자인</button>
+            <button>퍼블리셔</button>
+            <button>프론트엔드</button> -->
+        </p>
+        <div class="list">
+            <!-- <a href="#">
+                <figure>
+                    <p><img src="./img/1.jpg" alt="" width="500"></p>
+                    <figcaption>
+                        작품명 : 데브시스터즈
+                        제작 기간 : 5일
+                        요약설명 : 사용성이 편리하고 심플한 컨셉
+                    </figcaption>
+                </figure>
+            </a> -->
+        </div>
+    </article>
+
+
+    <script>
+        const elList = document.querySelector('.list');
+        const elP = document.querySelector('.btns');
+        
+        let art = {
+            디자인 : [
+                {작품명: '삼성', 제작기간: '7일', 요약설명: '심플', 이미지:'./img/1.jpg'},
+                {작품명: '당근', 제작기간: '8일', 요약설명: '오렌지', 이미지:'./img/2.jpg'},
+            ],
+            퍼블리셔 : [
+                {작품명: '카카오', 제작기간: '5일', 요약설명: '큐트', 이미지:'./img/3.png'},
+                {작품명: '당근', 제작기간: '8일', 요약설명: '오렌지', 이미지:'./img/4.jpg'}
+            ],
+            프론트엔트 : [
+                {작품명: '쿠팡', 제작기간: '6일', 요약설명: '블루', 이미지:'./img/5.jpg'},
+                {작품명: '삼성', 제작기간: '7일', 요약설명: '심플', 이미지:'./img/6.png'},
+            ]
+        };
+        for(const k in art){ //art 객체에 key (디,펍,프) 반복
+            elP.innerHTML += `<button>${k}</button>`;
+        }
+        const elBtn = document.querySelectorAll('button'); // 이 위치로 옮긴 이유 놓쳤음...ㅋ
+        
+        elBtn.forEach(function(button,k){ //버튼: 객체, k: 인덱스
+            button.onclick = function(){
+                elList.innerHTML=''; // 26일 필기에도 있는 내용인데 사실 이해 못함 ㅎㅅㅎ
+                let key = this.innerText;
+                //console.log(art[key]) //art.key 금지 -> 아트 안의 키를 찾는 거임 */
+                
+                art[key].forEach(function(obj){
+                    elList.innerHTML += `<a href="#">
+                                            <figure>
+                                                <p><img src="${obj.이미지}" width="200"></p>
+                                                <figcaption>
+                                                    작품명 : ${obj.작품명}<br>
+                                                    제작기간 : ${obj.제작기간}<br>
+                                                    요약설명 : ${obj.요약설명}
+                                                </figcaption>
+                                            </figure>
+                                        </a>`;
+                });
+                 
+            }
+        });
+
+                // for(const k in art){
+                //    // console.log(k == '퍼블리셔')
+                //     if(k == '퍼블리셔'){
+                //     }
+                // }  // 필요없대요... 이게 먼데....
+       
+
+    </script>
+</body>
+</html>
