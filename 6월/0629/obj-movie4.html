@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h1>네이버 영화</h1>
+        <div class="naver">
+            <!-- <span>월별</span>
+            <span>현재상영</span>
+            <span>개봉예정</span>
+            <span>박스오피스</span> -->
+        </div>
+        <ul class="movie">
+            <!-- <div>
+                <p>제목</p>
+                <p>개요</p>
+                <p>개봉 <span>평점</span></p>
+                <p>출연</p>
+                <button>예매하기</button>
+                <button>예고편</button>
+            </div> -->
+           
+        </ul>
+            
+    </article>
+
+    <style>
+        article{width: 800px; margin: 0 auto; border: 2px solid yellowgreen; padding: 20px; border-radius: 20px;} 
+        article h1{text-align: center;}
+        .naver{display: flex; justify-content: space-between; width: 400px; margin: 0 auto;}
+        .naver span { font-size: 20px; text-align: center; font-weight: 900; margin: 10px 0;} 
+        .movie li{width: 300px; border: 1px solid lightgray; 
+            border-radius: 10px; padding: 30px;}
+        .movie {display: flex; justify-content: space-evenly; list-style-type: none; padding:0;}
+        .movie button{padding: 10px 20px;}
+    </style>
+
+    <script>
+        const elMovie = document.querySelector('.movie');
+        const elBtn = document.querySelector('.naver');
+
+        let contents = {
+            월별 : [
+                {제목: '엘리멘탈', 개요: '액션  154분', 개봉: '2023.06.28', 평점:'8.14', 출연: '해리슨포드'},
+                {제목: '플래시', 개요: '액션  118분', 개봉: '2023.06.21', 평점:'8.10', 출연: '김선호'},
+                {제목: '트랜스포머', 개요: '액션  118분', 개봉: '2023.06.21', 평점:'8.10', 출연: '김선호'}
+            ],
+            현재상영 : [
+                {제목: '인디아나존스', 개요: '액션  154분', 개봉: '2023.06.28', 평점:'8.14', 출연: '해리슨포드'},
+                {제목: '귀공자', 개요: '액션  118분', 개봉: '2023.06.21', 평점:'8.10', 출연: '김선호'}
+            ],
+                개봉예정 : [
+                {제목: '악마들', 개요: '액션  154분', 개봉: '2023.06.28', 평점:'8.14', 출연: '해리슨포드'},
+                {제목: '빈틈없는 사이', 개요: '액션  118분', 개봉: '2023.06.21', 평점:'8.10', 출연: '김선호'}
+            ],
+            박스오피스 : [
+                {제목: '여름 날 우리', 개요: '액션  154분', 개봉: '2023.06.28', 평점:'8.14', 출연: '해리슨포드'}
+            ],
+        }
+        for (const k in contents){
+            elBtn.innerHTML += `<span>${k}</span>`;
+            console.log('k')
+        } //이거 돌아서 월별~박스 오피스 생성된거임
+
+        const btnList = document.querySelectorAll('.naver span');
+        //이 네이버 버튼들을 담는 버튼 리스트 변수를 만들어줌
+
+        // 버튼 리스트 클릭했을 때 영화 정보들이 들어가게 하기
+        btnList.forEach(function(span,k){
+            span.onclick = function(){
+                elMovie.innerHTML='';        
+      
+                let key = this.innerText; 
+                //현재상영 눌렀을때 키로 가져와서 쓸수 있게 하는..? 근데 지금은 안쓰기로 함...
+                //월별 개봉예정 얘네 비어있어서 그냥 저기 누르면 무조건 뿌려지게하는
+
+                contents[key].forEach(function(obj){
+                elMovie.innerHTML += `<li>
+                                            <h3>${obj.제목}</h3>
+                                            <p>개요: ${obj.개요}</p>
+                                            <p>개봉: ${obj.개봉}</p>
+                                            <p>★평점: ${obj.평점}</p>
+                                            <p>출연: ${obj.출연}</p>
+                                    </li>`;
+                                }); 
+                            }
+        });
+
+
+    </script>
+</body>
+</html>

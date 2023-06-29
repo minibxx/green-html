@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h2>obj 출력</h2>
+        <div class="port">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </article>
+    <script>
+        const elPort = document.querySelectoraAll('.port > div');
+
+        let art = {
+            디자인 : [
+                {작품명: '삼성', 제작기간: '7일', 요약설명: '심플', 이미지:'./img/1.png'},
+                {작품명: '당근', 제작기간: '8일', 요약설명: '오렌지', 이미지:'./img/2.png'},
+            ],
+            퍼블리셔 : [
+                {작품명: '카카오', 제작기간: '5일', 요약설명: '큐트', 이미지:'./img/3.png'},
+                {작품명: '당근', 제작기간: '8일', 요약설명: '오렌지', 이미지:'./img/4.png'}
+            ],
+            프론트엔트 : [
+                {작품명: '쿠팡', 제작기간: '6일', 요약설명: '블루', 이미지:'./img/5.png'},
+                {작품명: '삼성', 제작기간: '7일', 요약설명: '심플', 이미지:'./img/6.png'},
+            ]
+        };
+
+        for (const data in art){ //아트 이용해서 3번 반복실행
+            elPort[0].innerHTML = data;
+        }
+
+        elPort.forEach(function(ele,k){
+            ele.innerHTML = art['디자인'][0].이미지
+        });
+
+    </script>       //////////////////// 먼가 안됩니다 ??????????????????
+</body>
+</html>

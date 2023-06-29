@@ -35,16 +35,16 @@
         
         let art = {
             디자인 : [
-                {작품명: '삼성', 제작기간: '7일', 요약설명: '심플', 이미지:'./img/1.jpg'},
-                {작품명: '당근', 제작기간: '8일', 요약설명: '오렌지', 이미지:'./img/2.jpg'},
+                {작품명: '킹덤', 제작기간: '7일', 요약설명: '심플', 이미지:'./img/1.png'},
+                {작품명: '브릭시티', 제작기간: '8일', 요약설명: '오렌지', 이미지:'./img/2.png'},
             ],
             퍼블리셔 : [
-                {작품명: '카카오', 제작기간: '5일', 요약설명: '큐트', 이미지:'./img/3.png'},
-                {작품명: '당근', 제작기간: '8일', 요약설명: '오렌지', 이미지:'./img/4.jpg'}
+                {작품명: '쿠키런', 제작기간: '5일', 요약설명: '큐트', 이미지:'./img/3.png'},
+                {작품명: '오븐브레이크', 제작기간: '8일', 요약설명: '오렌지', 이미지:'./img/4.png'}
             ],
             프론트엔트 : [
-                {작품명: '쿠팡', 제작기간: '6일', 요약설명: '블루', 이미지:'./img/5.jpg'},
-                {작품명: '삼성', 제작기간: '7일', 요약설명: '심플', 이미지:'./img/6.png'},
+                {작품명: '퍼즐월드', 제작기간: '6일', 요약설명: '블루', 이미지:'./img/5.png'},
+                {작품명: '위치캐슬', 제작기간: '7일', 요약설명: '심플', 이미지:'./img/6.png'},
             ]
         };
         for(const k in art){
@@ -74,6 +74,51 @@
         }
             printFun('디자인'); 
             //함수로 만들어서 넣어두면 기본으로 보여짐. 위치 옮겨도 되나?
-        </script>
+    </script>
+    <article>
+        <h2>obj 출력</h2>
+        <div class="port">
+            <div> </div>
+            <div> </div>
+            <div> </div>
+        </div>
+    </article>
+    <script>
+        const elPort = document.querySelectorAll('.port > div');
+
+        let num=0;
+        // for (const data in art){ //아트 이용해서 3번 반복실행
+           
+        //     art[data].forEach(function(obj,k){
+        //         elPort[num].innerHTML += `<a href="#">
+        //             <figure>
+        //                 <p><img src="${obj.이미지}" width="200"></p>
+        //                 <figcaption>
+        //                     작품명 : ${obj.작품명}<br> 제작기간 : ${obj.제작기간}<br>요약설명 : ${obj.요약설명}
+        //                 </figcaption>
+        //             </figure>
+        //         </a>`;
+        //     });
+        //     num++;
+        // }
+        let dataPro = Object.keys(art);
+
+        console.log(dataPro); //dataPro[0] : 디자인  [1] : 퍼블
+
+
+        elPort.forEach(function(ele,k){
+            let key = dataPro[k]; //헷갈리니까 key 변수 만들자
+            art[key].forEach(function(obj){
+                ele.innerHTML += `<a href="#">
+                    <figure>
+                        <p><img src="${obj.이미지}" width="200"></p>
+                        <figcaption>
+                            작품명 : ${obj.작품명}<br> 제작기간 : ${obj.제작기간}<br>요약설명 : ${obj.요약설명}
+                        </figcaption>
+                    </figure>
+                </a>`;
+            })
+        });
+    </script>
 </body>
 </html>

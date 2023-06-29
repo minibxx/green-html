@@ -1,0 +1,61 @@
+<article>
+    <h1>네이버 영화</h1>
+    <div class="naver">
+        <!-- <span>월별</span>
+        <span>현재상영</span>
+        <span>개봉예정</span>
+        <span>박스오피스</span> -->
+    </div>
+    <ul class="movie">
+        <!-- <div>
+            <p>제목</p>
+            <p>개요</p>
+            <p>개봉 <span>평점</span></p>
+            <p>출연</p>
+            <button>예매하기</button>
+            <button>예고편</button>
+        </div> -->
+       
+    </ul>
+        
+</article>
+
+<style>
+    article{width: 800px; margin: 0 auto; border: 2px solid yellowgreen; padding: 20px; border-radius: 20px;} 
+    article h1{text-align: center;}
+    .naver{display: flex; justify-content: space-between; width: 400px; margin: 0 auto;}
+    .naver span { font-size: 20px; text-align: center; font-weight: 900; margin: 10px 0;} 
+    .movie li{width: 300px; border: 1px solid lightgray; 
+        border-radius: 10px; padding: 30px;}
+    .movie {display: flex; justify-content: space-evenly; list-style-type: none; padding:0;}
+    .movie button{padding: 10px 20px;}
+</style>
+
+<script>
+    const elMovie = document.querySelector('.movie');
+    const elBtn = document.querySelector('.naver');
+
+    let contents = {
+        현재상영 : [
+            {제목: '인디아나존스', 개요: '액션  154분', 개봉: '2023.06.28', 평점:'8.14', 출연: '해리슨포드'},
+            {제목: '귀공자', 개요: '액션  118분', 개봉: '2023.06.21', 평점:'8.10', 출연: '김선호'}
+        ]
+    }
+
+    for (const k in contents){
+        elBtn.innerHTML += `<span>${k}</span>`;
+        console.log('k')
+    } //이거 돌아서 '현재상영' 생성된거임
+
+    contents.현재상영.forEach(function(obj){
+    elMovie.innerHTML += `<li>
+                                <h3>${obj.제목}</h3>
+                                <p>개요: ${obj.개요}</p>
+                                <p>개봉: ${obj.개봉}</p>
+                                <p>★평점: ${obj.평점}</p>
+                                <p>출연: ${obj.출연}</p>
+                        </li>`;
+                    });         
+                // }
+    // });
+</script>
