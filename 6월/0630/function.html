@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        // function 네이밍 (){}
+        // let 네이밍 = function(){}
+
+        let fun = function(값){
+            console.log(값);
+        }
+        fun( ); //실행해라 ~
+    </script> -->
+    <article>
+        <h2>구구단</h2>
+        <div class="btn">
+            <button>전체</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+        </div>
+        <div class="result">
+
+        </div>
+    </article>
+
+    <script>
+        // 1. 구구단 돌아가는 코드를 만든다
+        // 2. 구구단이 elResult 자리에 출력되게 만든다
+        // 3. 버튼을 눌렀을 때 구구단이 나오게 만든다
+        // 4. 누르는 숫자에 맞는 구구단이 나오게 만든다 this = 버튼
+        const elButton = document.querySelectorAll('.btn button'),
+              elResult = document.querySelector('.result');
+
+        let str=''; //문자를 나타내는 변수
+        let gugudan = function(x){
+
+            //아랫줄 태그 보면 <p> 열기만 했는데 브라우저 상에는 자동 닫혀있음
+            //innerHTML 같은 거는 한번만 쓰는게 좋아요~
+
+            str += `<p><b>${x}단</b><br>`;
+            for(let i=1; i<=9; i++){
+                str +=  `${x}x${i}=${ x*i } <br>`;
+            }
+            str += `</p>`;
+            elResult.innerHTML = str;
+        }
+
+        let all = function(){
+            for(let i=2; i<=9; i++){
+                gugudan(i);
+            }
+        }
+
+        elButton.forEach(function(button,key){
+            button.onclick = function(){
+                let num = this.innerText;
+                
+                elResult.innerHTML = ''; 
+                if(num === '전체'){
+                        all();
+                    }else{
+                        gugudan(num);
+                    }
+                }
+            }
+        );
+    </script>
+
+
+    <article class="count">
+        <h2>setInterval / count</h2>
+        <div> 1000 </div>
+        <div> 600 </div>
+    </article>
+
+    <script> //0을 넣으면 1000,1을 넣으면 600이 실행
+        const elCount = document.querySelectorAll('.count div');
+    
+        
+        let count = [];
+        elCount.forEach(function(el){
+            count.push(Number(el.innerText));
+            el.innerHTML = 0;
+        })
+
+
+        let startCount = function(n){
+            let sNum = 0;
+            setInterval(function(){
+                if(sNum < count[n]) sNum++;
+                elCount[0].innerHTML = sNum;        
+            },1)
+        }
+
+
+        elCount.forEach(function(v,k){
+            startCount(k)
+        })
+
+    </script>
+
+    
+</body>
+</html>
