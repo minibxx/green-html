@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article class="slide">
+        <h2>ex) interval</h2>
+        <div>
+            <figure>
+                <img src="./img/1.png">
+                <img src="./img/2.png">
+                <img src="./img/3.png">
+            </figure>
+            
+            <p>
+                <button data-name="prev"> prev </button>
+                <button data-name="next"> next </button>
+                <button data-name="toggle"> pause </button>
+            </p>
+        </div>
+    <style>
+        article{width:500px; margin:100px auto}
+        figure{
+                margin:0; display: flex;
+                transition: 1s;
+            }
+        .slide img{width:100%;}
+        .slide > div{overflow: hidden;}
+    </style>
+     
+    <script>
+        const elSlideBtn = document.querySelectorAll('.slide button'),
+              elSlide = document.querySelector('.slide figure');
+
+        let   sNum = 0;
+
+        elSlideBtn.forEach(function(btn){
+            btn.onclick = function(){
+                let name = this.dataset.name;
+                if(name === 'toggle'){
+
+                    //버튼 하나 가지고 play 되거나 멈추거나 : 토글
+                    if(this.innerText === 'pause'){
+                        this.innerText = 'play'
+                        clearInterval(slideInterval)
+                    }else{
+                        this.innerText = 'pause' 
+                        //다시 또 누르면 멈춰야되니까 ? 재실행 되라?
+                        loop();
+                    }
+                }else{
+                    slidePlay(name);
+                }
+            }
+        })
+
+        let slidePlay = function(param){
+            if(param === 'next'){
+                if(sNum < 2){ sNum++; }
+            }else{
+                if(sNum > 0){ sNum--; }
+            }
+
+            elSlide.style = `transform:translateX(${-100 * sNum}%);`;
+        }
+
+        let slideInterval;
+        function loop(){
+            slideInterval = setInterval(slidePlay,2000,'next');
+        }
+        loop();
+    </script>
+
+    </article>
+</body>
+</html>
