@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+<article >
+    <h2>문제를 맞춰보세요~..</h2>
+    
+    <div class="btn">
+        <button></button>
+        <input type="text"> 
+        <button></button>
+        <div></div>
+    </div>
+    <p class="interval"></p>
+    
+    <div class="btn">
+        <p></p>
+    </div>
+</article>
+<style>
+    article{
+        width:500px; margin:100px auto; border: 2px solid rgb(156, 104, 223); 
+        padding: 0 25px 10px 20px; border-radius: 10px;
+
+    }
+    .interval{background-color: rgb(111, 0, 255); text-align: right; color:white;}
+
+    
+</style>
+<script>
+    // 시작버튼을 만든다
+    // 시작버튼을 누르면 카운트다운 시작된다
+    // 시작되면 문제가 나온다
+    // 2초마다 문제가 바뀐다
+    // 답안과 문제를 비교한다
+    // 4문제 이상 정답 [통과] , 4문제 이하 정답 [실패]
+
+    const elI= document.querySelector(".interval");
+    const elBtn = document.querySelector(".btn button:nth-of-type(1)");
+    const elBtn2 = document.querySelector(".btn button:nth-of-type(2)");
+    const elQ = document.querySelector(".btn p");
+    const elResult = document.querySelector(".btn div")
+   
+    elBtn.innerHTML += `start`;
+    elBtn2.innerHTML += `submit`;
+
+    // 시작버튼을 누르면 카운트다운 시작된다
+    let number = 11;
+
+    elBtn.onclick = function(){
+        const countDownF = function(){
+            if(number>0){
+                number--; 
+                elI.style = `width:${number*10}%`;
+                elI.innerText = `${number}초`;
+            }else{
+                clearInterval(countDownInterval); 
+            }
+        };
+
+        const qF = function(){
+            let ranNum = function(n) {
+                return Math.round(Math.random()*n) + 1;
+            }
+
+            elQ.innerHTML ='';
+            let a = ranNum(100);
+            let b = ranNum(100);
+            let c = a+b;
+
+            elQ.innerHTML += `${a} + ${b} = ?<br>`;
+            if(number==2){clearInterval(qInterval); }
+        };
+
+        const countDownInterval = setInterval(countDownF, 1000);
+
+        // 시작되면 문제가 나온다 2초마다 문제가 바뀐다
+
+        const qInterval = setInterval(qF, 2000);
+
+        countDownF();
+        qF();
+    }
+
+    
+
+    elBtn2.onclick = function(){
+        if(elBtn2 == c){
+            elResult.innerHTML += `정답`;
+        }else{
+            elResult.innerHTML += `오답`;
+        }
+    }
+
+    </script>
+</body>
+</html>
