@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <a>menu 1</a>
+        <a>menu 2</a>
+        <a>menu 3</a>
+        <a>menu 4</a>
+        <a>menu 5</a>
+    </header>
+    <h2>scroll-direction</h2>
+    <main>
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+        <section>5</section>
+    </main>
+    <style>
+        h2 {margin-top: 100px;}
+        header{
+            position: fixed; left:0; top:0%;
+            width:100%; padding:20px 0;
+            text-align: center;
+            background-color:yellowgreen;
+            color:white;
+        }
+        header.active{
+            transform: translateY(-100%);
+        }
+        header>a.active {color: red;}
+        section{
+            font-size:5rem;
+            width:100%; height:50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section:nth-child(2n){
+            background-color: #eee;
+        }
+    </style>
+    <script>
+        const elMenus = document.querySelectorAll('header a');
+        const elSection = document.querySelectorAll('section');
+        let menuStyle=0; // 
+
+        // 메뉴 <a> 클릭하면 해당 숫자 섹션으로 이동
+        elMenus.forEach(function(v,k){
+            v.onclick = function(){
+                //block 속성 값에 맞는 위치에 맞춤 (스타트, 엔드, 센터)
+                elSection[k].scrollIntoView({behavior:"smooth", block:"end"});
+
+                //클릭한 메뉴 색 바뀌게 
+                elMenus[menuStyle].classList.remove("active"); //액티브 지워줌
+                elMenus[k].classList.add("active"); //액티브 추가
+                menuStyle = k; // 메뉴스타일 변수에 k값 저장
+            }    
+        })
+
+        
+    </script>
+</body>
+</html>

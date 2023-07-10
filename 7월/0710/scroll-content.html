@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- scroll_content.html -->
+
+    <header id="header">
+        <a> menu01 </a>
+        <a> menu02 </a>
+        <a> menu03 </a>
+        <a> menu04 </a>
+        <a> menu05 </a>
+    </header>
+
+    <main>
+        <section >01</section>
+        <section >02</section>
+        <section >03</section>
+        <section >04</section>
+        <section >05</section>
+    </main>
+    <style>
+        header{
+            position: fixed; left:0; top:0;
+            width:100%; padding:20px 0;
+            text-align: center;
+            background-color: rgba(22, 105, 221, 0.6);
+            color:white;
+            transition: 1s;
+        }
+        header a{cursor:pointer}
+        header a.active{
+            color:yellow;
+        }
+        header.active{
+            transform: translateY(-100%);
+        }
+        section{
+            font-size:5rem;
+            width:100%; height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section:nth-child(2n){
+            background-color: #eee;
+        }
+    </style>
+
+<script>
+    let pos = {y:0,y2:0,status:true};
+    let num = 0;
+    const elMenus = document.querySelectorAll('header a'),
+          elSection = document.querySelectorAll('section');
+
+    let secArr = [];
+        elSection.forEach(function(ele){
+            secArr.push(  ele.getBoundingClientRect()  );
+        })
+
+    // 현재 스크롤 위치 보고 그에 따라 a에 active 추가하는 코드
+    window.addEventListener('scroll',function(){ 
+        pos.y = window.pageYOffset; //스크롤 위치 잡는거 (보여줌, 콘솔 보면 숫자로 나옴)
+        pos.status = (pos.y > pos.y2) ? true : false;
+        pos.y2 = pos.y;
+
+        // if(pos.status){ header.classList.add('active')  }
+        // else{ header.classList.remove('active')  } 
+        // 근데 얘를 왜 주석해놨지 ???????????
+
+        secArr.forEach(function(secPos,key){
+            if(secPos.y - window.innerHeight/2  < window.pageYOffset){
+            //나누기 2 안하면 끝나는 값에 맞춰서 정확하게 뭐가 되지 않는다고 해요 ....
+                // menuFun(key); 근데 얘를 왜 주석해놨지 ??????????? 
+            }
+        });
+        // 스크롤 값이랑 콘텐츠 비교해서 불 들어오게 하고 있어서
+        // 스크롤 안하고 메뉴에서 숫자만 눌러도 잘 찾아감
+
+    })
+    
+    elMenus.forEach(function(menu,key){
+        menu.onclick = function(){
+            menuFun(key);
+
+            elSection[key].scrollIntoView(
+                {behavior:"smooth",block:"center"}
+            );
+        }
+    })
+
+    function menuFun(key){
+        elMenus[num].classList.remove('active');
+        elMenus[key].classList.add('active')
+        num = key;
+    }
+   
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
