@@ -11,25 +11,25 @@
 <article >
     <h2>문제를 맞춰보세요~..</h2>
     
+    <p class="interval"></p>
     <div class="btn">
         <button></button>
         <input type="text"> 
         <button></button>
         <div></div>
     </div>
-    <p class="interval"></p>
     
-    <div class="btn">
+    <div class="btn2">
         <p></p>
     </div>
 </article>
 <style>
     article{
         width:500px; margin:100px auto; border: 2px solid rgb(156, 104, 223); 
-        padding: 0 25px 10px 20px; border-radius: 10px;
+        padding: 0 25px 10px 20px; border-radius: 10px; height:210px;
 
     }
-    .interval{background-color: rgb(111, 0, 255); text-align: right; color:white;}
+    .interval{background-color: white; text-align: right; color:white; height: 20px;}
 
     
 </style>
@@ -44,35 +44,42 @@
     const elI= document.querySelector(".interval");
     const elBtn = document.querySelector(".btn button:nth-of-type(1)");
     const elBtn2 = document.querySelector(".btn button:nth-of-type(2)");
-    const elQ = document.querySelector(".btn p");
-    const elResult = document.querySelector(".btn div")
+    const elQ = document.querySelector(".btn2 p");
+    const elResult = document.querySelector(".btn div");
+    const elInput = document.querySelector('input');
    
     elBtn.innerHTML += `start`;
     elBtn2.innerHTML += `submit`;
-
+    let correctCount = 0;
     // 시작버튼을 누르면 카운트다운 시작된다
     let number = 11;
 
+    let c = 0;
     elBtn.onclick = function(){
         const countDownF = function(){
             if(number>0){
                 number--; 
-                elI.style = `width:${number*10}%`;
+                elI.style = `width:${number*10}%; background-color:rgb(111, 0, 255);`;
                 elI.innerText = `${number}초`;
             }else{
+                if(correctCount>=4) {
+                    alert(`${correctCount}개 정답으로 통과입니다`)
+                } else {
+                    alert(`${correctCount}개 정답으로 실패입니다`)
+                }
                 clearInterval(countDownInterval); 
             }
         };
-
-        const qF = function(){
+        
+        const qF = function() {
             let ranNum = function(n) {
                 return Math.round(Math.random()*n) + 1;
             }
 
             elQ.innerHTML ='';
-            let a = ranNum(100);
-            let b = ranNum(100);
-            let c = a+b;
+            let a = ranNum(10);
+            let b = ranNum(10);
+            c = a+b;
 
             elQ.innerHTML += `${a} + ${b} = ?<br>`;
             if(number==2){clearInterval(qInterval); }
@@ -89,13 +96,15 @@
     }
 
     
-
+    
     elBtn2.onclick = function(){
-        if(elBtn2 == c){
+        if(elInput.value == c){
             elResult.innerHTML += `정답`;
+            correctCount++;
         }else{
             elResult.innerHTML += `오답`;
         }
+        elInput.value ='';
     }
 
     </script>
