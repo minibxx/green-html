@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j-selector</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li><img src="./img/4.png" alt=""></li>
+
+    </ul>
+    <script>
+        $('body')
+        .css({
+            "background-color":"orange",
+            fontSize : "50px"
+        }) 
+        //on: 이벤트 연결
+        .on('click',function(){  
+            alert('와우!!!!')
+        })//에드이벤트리스너와 형태 유사함
+
+        $('li')
+        .css({
+            border : "3px solid yellow"
+        })
+
+        .on('click',function(){
+            $(this).css('color','red')
+            console.log(
+                $(this).index(), //값을 주세요
+                $(this).text("ㅎㅎ"), //값을 넣으세요
+                $(this).html(), //넣을 값을 괄호 안에
+                $(this).attr('class','abc'), //태그 속성 가져오기 클릭시 li에 abc생성
+                $(this).find('img').attr('src') 
+            )
+        })
+        
+    </script>
+</body>
+</html>
