@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <article class="filter">
+        <h2> filter (blur, brightness, grayscale, drop-shadow)</h2>
+        <div> blur </div>
+        <div> <img src="./sp_main.30918f90.png"> </div>
+        <style>
+            .filter div{margin:50px 0;}
+            .filter div:nth-of-type(1){
+                font-size:3rem; font-weight: bold;
+                -webkit-text-stroke: 1px red;
+                -webkit-text-fill-color: transparent;
+            }
+            .filter div:nth-of-type(2){
+                filter: drop-shadow(5px 5px 0px red) 
+                        grayscale(100%)
+                        blur(1px);
+                        transition: 5s;
+            }
+            .filter div:nth-of-type(2):hover{
+                filter: drop-shadow(5px 5px 0px red) 
+                        blur(1px)
+                        brightness(100%);
+                        transition: 5s;
+            }
+        </style>
+    </article>
+
+
+    
+</body>
+</html>

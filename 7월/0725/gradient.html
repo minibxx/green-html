@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="width: 80%; margin: 50px auto 0 auto;">그라디언트(linear/radial)</h2>
+    <article>
+        <div class="linear">linear</div>
+        <div class="linear2">linear2</div>
+        <div class="radial">radial</div>
+        <div class="radial2">radial2</div>
+        <style>
+            article{
+                width: 80%; margin: 20px auto; display: flex;
+            }
+            
+            .linear{
+                text-align: center;
+                padding: 100px; height: 40px; color: white; font-size: 30px; margin: 10px;
+                background: linear-gradient(to right,red,yellow);
+            }
+            .linear2{
+                text-align: center;
+                padding: 100px; height: 40px; color: green; font-size: 30px; margin: 10px;
+                background: repeating-linear-gradient(yellowgreen,yellowgreen 10px,yellow 10px, yellow 20px);
+            }
+            .radial{
+                text-align: center;
+                padding: 100px; height: 40px; color: white; font-size: 30px; margin: 10px;
+                background: radial-gradient(blue,purple);
+            }
+            .radial2{
+                text-align: center;
+                padding: 100px; height: 40px; color: white; font-size: 30px; margin: 10px;
+                background: radial-gradient(circle 200px at 10% 10%, red 30%,yellow,green );
+            }
+
+            
+        </style>
+    </article>
+</body>
+</html>
