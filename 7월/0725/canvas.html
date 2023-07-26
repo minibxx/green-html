@@ -14,17 +14,105 @@
 
     <script>
         const canvas = document.querySelector('canvas'),
-              ctx = canvas.getContext('2d');
+            ctx = canvas.getContext('2d');
 
-              ctx.fillRect(100,50,200,200);
-              ctx.strokeRect(100,300,200,200);
+            ctx.fillRect(100,50,200,200);
+            ctx.strokeRect(100,300,200,200);
 
-              //x, y, 원의 반지름, 시작, 끝, 원을 그릴 방향
-              ctx.arc(200, 650, 50, 0, Math.PI*2, false)
-              ctx.fill();
+            //x, y, 원의 반지름, 시작, 끝, 원을 그릴 방향
+            ctx.lineWidth = 20;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = 'red';
 
+            ctx.arc(200, 650, 100, 0, Math.PI, true);
+            //PI 는 반원 PO*2 는 원         
+            ctx.stroke();
 
-    </script>
+            ctx.beginPath(); // 그림을 새롭게 시작
+            ctx.lineTo(350,100);
+            ctx.lineTo(500,100);
+            ctx.stroke(); // 그림 그리라는 명령
+            ctx.closePath(); // 그림 끝남
+
+        const newImg = new Image();
+            newImg.src = './03.png';
+
+            newImg.addEventListener('load',()=>{
+            ctx.drawImage(newImg, 350, 300, 200, 200);
+            //x좌표 y좌표 가로 세로 : 이미지 삽입
+            ctx.drawImage(newImg, 190, 90, 200, 200, 600, 300, 200, 200  );
+            // 크롭한 이미지 (크롭 x좌표, 크롭 x좌표, 가로, 세로 ...~ )
+            })
+            
+        const newVideo = document.createElement('video');
+            newVideo.src = './home-ourgames-brixity.mp4';
+            newVideo.muted = 'muted';
+            newVideo.play();
+
+            newVideo.addEventListener('load',()=>{
+                console.log('load...')
+            })
+
+            newVideo.addEventListener('loadedmetadata',()=>{
+                console.log('loadedmetadata...')
+            }) // 영상이 시작되면서 발생하는 이벤트
+            // 메타 데이터 : 재생 정보 시간 확인
+
+            newVideo.addEventListener('loadeddata',()=>{
+                console.log('loadeddata...')
+            }) // 메타 데이터 업로드가 끝나면 로드데이터 실행됨
+            // 동영상 프레임이 조금이라도 준비되면 발생 (동영상 재생)
+
+            newVideo.addEventListener('canplay',()=>{
+                console.log('canplay...')
+            }) // 동영상 재생시 발생
+
+            newVideo.addEventListener('canplaythrough',(e)=>{
+                console.log('canplaythrough...', e)
+                videoDraw();
+            }) // 동영상 전체를 끊김 없이 재생할 수 있을 때 
+
+            function videoDraw(){
+                ctx.drawImage(newVideo, 200, 650, 300, 200);
+                // requestAnimationFrame(videoDraw);
+                // 돔의 상태를 확인하면서 (ctx를 시키고) 함수를 실행시킴
+                // -> 자기자신을 반복해서 실행 (재귀함수), 영상 플레이 하는 듯 보임
+
+                if(!newVideo.ended){
+                    aaa = requestAnimationFrame(videoDraw);
+                }else{
+                    cancelAnimationFrame(aaa);
+                }
+            }
+                
+        let num = 0;
+        function skill(){
+            num++;
+
+            ctx.beginPath();
+            ctx.arc(700, 750, 100, 0, (Math.PI*2) * num/100, false);             
+            ctx.stroke();
+
+            if(num < 100) requestAnimationFrame(skill);
+        } // 한바퀴 돌아서 생성되는 원, 0-100/100까지 순차적으로 채워짐
+
+        skill();
+
+        function sss(){
+            this.width = 20;
+            this.color = 'red';
+            this.x = 500;
+            this.y = 500;
+            this.size = [200,200];
+            this.draw = function(){
+                return 'draw';
+            }
+        }
+
+        let obj = new sss();
+        console.log (obj);
+        //obj 형태로 속성의 값들을 주고 있음!!
+</script>
 
 
 

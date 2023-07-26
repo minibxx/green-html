@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- canvas-memo.html -->
+    <input type="color" id="elColor">
+    <select id="elLineSize">
+        <option>1</option>
+        <option>3</option>
+        <option>6</option>
+    </select>
+    <button id="remove"> 지우기 </button>
+    <a id="save"> 저장 </a>
+    <a href="#" download="canvas-test.png" id="save"> 저장 </a>
+    <!-- 이 이름으로 저장해 -->
+
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <style>
+        body{
+            width: 50%;
+            margin: 50px auto;
+        }
+        canvas{ 
+            border:1px solid red; 
+            margin:20px auto;
+            display:block;
+        }
+        #remove{width: 100px; height: 30px;}
+        #save{width: 100px; height: 30px;}
+        
+    </style>
+<script>
+    let ctx = canvas.getContext('2d');
+    let cSize = {w:canvas.width, h:canvas.height}
+
+    let status = false, 
+        lineColor = elColor.value, 
+        lineSize = elLineSize.value;
+        
+    remove.addEventListener('click',function(){
+        ctx.clearRect(0,0,500,500);
+    }) // 지우기 버튼 초기화
+
+    elLineSize.addEventListener('change',function(){
+        lineSize = this.value;
+    }) // 선 두께 설정하면 lineSize에 저장
+
+    elColor.addEventListener('change',function(){
+        lineColor =  this.value;
+    }) // 색상 설정하면 lineColor에 저장
+
+
+    canvas.addEventListener('mousedown',function(){
+        ctx.beginPath();
+        status = true;
+    }) // 마우스 누르면 true 로 바뀌면서 써짐
+
+    canvas.addEventListener('mouseup',function(){
+        status = false;
+    })
+
+    canvas.addEventListener('mousemove',drawMove);
+
+    // status가 true 일 때의 상태
+    function drawMove(e){
+        if(status){
+            ctx.lineWidth = lineSize;
+            ctx.strokeStyle = lineColor;
+            ctx.lineTo(e.offsetX,e.offsetY);
+            ctx.stroke();
+        }
+    }
+
+</script>
+</body>
+</html>

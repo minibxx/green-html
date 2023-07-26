@@ -45,13 +45,13 @@
     }
 
     const arrIndex = [];
-    const result=0;
+    const result='';
     
-    arrIndex.forEach(function(){
-        result = compare(num1,num2);
+    arrIndex.forEach(function(v){
+        result = compare(v.num1,v.num2);
         console.log(result);
         if(result == true){
-            arrIndex += array.i
+            arrIndex += v.num1
         }
     })
 
