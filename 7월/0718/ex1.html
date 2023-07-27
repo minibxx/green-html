@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [
+            {
+                num1: 2,
+                num2: 15,
+            },
+            {
+                num1: 10,
+                num2: 3,
+            },
+            {
+                num1: 24,
+                num2: 7,
+            },
+            {
+                num1: 1000,
+                num2: 1001,
+            },
+            {
+                num1: 98,
+                num2: 100,
+            },
+        ]
+        
+        const compare = function(x, y){
+            if(x > y){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        const arrIndex = [];
+
+        arr.forEach(function(v,i){
+            const result = compare(v.num1, v.num2);
+
+            if(result == true){
+                arrIndex.push(i);
+            }
+        })
+        
+        console.log(arrIndex);
+    </script>
+</body>
+</html>
