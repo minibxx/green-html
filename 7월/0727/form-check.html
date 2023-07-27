@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article id="article">
+        <h2> 체크 </h2>
+        <p> <input type="checkbox" id="check1"> 동의 1 </p>
+        <p> <input type="checkbox" id="check2"> 동의 2 </p>
+        <p> <input type="checkbox" id="checkAll"> All동의  </p>
+    </article>
+
+    <script>
+        article.addEventListener('click',(e)=>{
+            console.log(   e.target.checked   ) 
+            if(e.target.id == 'checkAll' ){ //올체크와 나머지 둘 체크 상태 동일하게
+                check1.checked = e.target.checked;
+                check2.checked = e.target.checked; //checkAll 누르면 1,2도 체크됨
+            }
+
+            if(check1.checked && check2.checked){ //체크 1과 체크 2 모두 체크되면
+                checkAll.checked = true; // checkAll도 true (체크 활성화)
+            }else{
+                checkAll.checked = false; // checkAll false (체크 비활성화)
+            } 
+        })
+    </script>
+
+
+</body>
+</html>

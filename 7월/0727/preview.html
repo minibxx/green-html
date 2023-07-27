@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h2> file 이미지 미리보기 </h2>
+        <div>
+            <input type="file" id="upload">
+            <img src="" id="preview">
+        </div>
+    </article>
+
+    <script>
+         upload.addEventListener('change',()=>{
+            
+            let reader = new FileReader();
+            reader.readAsDataURL(upload.files[0]);
+
+            reader.onload = (e)=>{ //파일리더 함수에 e 넣고 동작
+                preview.src = e.target.result;
+            };
+            
+
+        })
+    </script>
+
+</body>
+</html>
