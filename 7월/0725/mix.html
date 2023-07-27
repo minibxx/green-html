@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<article class="mix">
+    <h2>mix-blend-mode</h2>
+    <div> 부모배경색과 자식배경색을 혼합</div>
+    <style>
+        article{width:80%; margin:100px auto;}
+        .mix{
+            background-color:green;            
+            position: relative;
+        }
+        .mix div{ 
+            color:yellow; 
+            /*부모와 자식 컬러의 평균 값을 내서 그 반대색을 보여줌*/
+            font-size:2rem; font-weight: bold;
+            mix-blend-mode: difference;       
+            transform: translateY(50%);
+            margin-top:50px;
+        }
+        body{background-color: white;}
+    </style>
+</article>
+    
+<script>
+    const array = [
+        {
+            num1: 300,
+            num2: 100
+        }
+    ];
+
+    const compare = function(a, b){
+        if(a<b){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    const arrIndex = [];
+    const result='';
+    
+    arrIndex.forEach(function(v){
+        result = compare(v.num1,v.num2);
+        console.log(result);
+        if(result == true){
+            arrIndex += v.num1
+        }
+    })
+
+    console.log(result);
+
+</script>
+</body>
+</html>

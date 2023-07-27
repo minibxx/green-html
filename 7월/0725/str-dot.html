@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article class="str-dot">
+        <h2>긴문자 뒤에 점찍기</h2>
+        <div>다시 말하자면, 크롬이나 오페라, 사파리 같은 웹킷 계열의 브라우저는 여러 줄의 글자를 자르는 자신만의 방법다시 말하자면, 크롬이나 오페라, 사파리 같은 웹킷 계열의 브라    </div>
+        <div>다시 말하자면, 크롬이나 오페라, 사파리 같은 웹킷 계열의 브라우저는 여러 줄의 글자를 자르는 자신만의 방법다시 말하자면, 크롬이나 오페라, 사파리 같은 웹킷 계열의 브라</div>
+    
+        <style>
+            article{width:50%; margin:100px auto;}
+            .str-dot div{margin:30px 0;}
+            .str-dot div:nth-of-type(1){
+                /* 한줄 */
+                white-space: nowrap; /*한 줄만 표기*/
+                overflow: hidden;
+                text-overflow: ellipsis; /*나머지 ...*/
+            }
+            .str-dot div:nth-of-type(2){
+                /* 여러줄 */
+                display: -webkit-box;
+                -webkit-box-orient: vertical; /*방향 설정*/
+                -webkit-line-clamp: 2; /*두 줄까지 허용*/
+                overflow: hidden;
+
+            }
+        </style>
+    
+    </article>
+   
+</body>
+</html>

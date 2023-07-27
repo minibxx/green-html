@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h2>form 활용</h2>
+        <form id="member" action="./class.html">
+            <p><input type="text" name="id" placeholder="id"></p>
+            <p><input type="password" name="pw" placeholder="pw"><button>패스워드확인</button></p>
+            <p><input type="email" name="email" placeholder="email"></p>
+            <p><input type="tel" name="tel" placeholder="tel"></p>
+            <p><input type="submit" name="저장"></p> <!-- submit : 유효성 검사 -->
+        </form>
+    </article>
+    <script>
+        const elInput = document.querySelectorAll('input');
+        
+        window.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            // ID & PW - 8~15문자 이고 특수기호, 숫자 1개 이상 포함
+            let regId = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+            let regPw = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const koreanPhoneRegex = /^(01[016789])-?[0-9]{3,4}-?[0-9]{4}$/;
+
+            // console.log(
+            //     regId.test(elInput[0].value),
+            //     regPw.test(elInput[1].value),
+            //     emailRegex.test(elInput[2].value),
+            //     koreanPhoneRegex.test(elInput[3].value)
+            //     위애들을 정규식으로 검사해서 맞으면 T, 틀리면 F
+            // )
+            
+            if(!regId.test(elInput[0].value)){
+                alert('아이디를 다시 입력해 주세요!');
+                return;
+            }
+
+            if(!regEmail.test(elInput[2].value)){
+                alert('이메일 다시 입력해 주세요!');
+                return;
+            }
+
+            if(!regTel.test(elInput[3].value)){
+                alert('전화번호을 다시 입력해 주세요!');
+                return;
+            }
+
+            member.submit();
+        })
+    </script>
+</body>
+</html>

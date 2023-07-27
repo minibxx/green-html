@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- map-filter.html -->
+
+    <script>
+        let data = [
+            {id:0,name:'수박'},
+            {id:1,name:'사과'},
+            {id:2,name:'얼음'},
+        ];
+
+        let [a,...all] = data; // 점 세개가 뽀인트 -김예솔
+        //...으로 원본 데이터 (data 배열) 복제, 원본데이터는 수정해도 변경되지 않음
+
+        let bbb = data; 
+        // 데이터 참조, 원본 데이터가 수정되면 전부 수정됨
+        all[0].name = '복숭아';
+        console.log(data)
+
+
+        let test = [10,20,30];       
+
+            testCopy = test;          
+            testCopy[0] = 10000;
+
+            console.log(test)
+            console.log(testCopy)
+
+
+
+
+
+
+
+        let addData = data.map((obj,key)=>{
+                obj.num = key;
+                return obj;
+        })
+
+       
+
+
+
+        let find = data.filter(obj => obj.name ==='사과');
+
+
+        // let find = data.filter(function(obj){
+        //                 if(obj.name ==='사과'){
+        //                     return obj;
+        //                 };
+        //            });
+
+     
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
