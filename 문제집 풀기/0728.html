@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers=[];
+        function calculateAverage(numbers) {
+            if (numbers.length == 0) {
+                return 0;
+            }
+
+            let sum = 0;
+            numbers.forEach(function(v,i){
+                sum += v;
+            })
+
+            let average;
+            average = sum/numbers.length;
+            return average;
+        // 여기에 숫자들의 평균값을 계산하여 반환하는 함수를 작성하세요.
+        }
+
+        // 테스트
+        const average1 = calculateAverage([1, 2, 3, 4, 5]);
+        console.log(average1); // 예상 출력 결과: 3
+
+        const average2 = calculateAverage([10, 20, 30]);
+        console.log(average2); // 예상 출력 결과: 20
+
+        const average3 = calculateAverage([]);
+        console.log(average3); // 예상 출력 결과: 0
+
+    </script>
+    <script>
+        function removeSpacesAndLowerCase(str) {
+            const strArr = [...str];
+            // console.log(strArr);
+            let s=''
+            strArr.forEach(function(v,i){
+                if(v !== " "){
+                    s += v;
+                    // strArr.splice(7,1);
+                }
+            })
+            console.log(s);
+            const result = s.toLowerCase();
+            console.log(result);
+        // 여기에 문자열에서 공백을 제거하고, 모든 문자를 소문자로 변환하는 함수를 작성하세요.
+        }
+
+        // 테스트
+        const result1 = removeSpacesAndLowerCase('Hello, World!');
+        console.log(result1); // 예상 출력 결과: 'hello,world!'
+
+        const result2 = removeSpacesAndLowerCase('  JavaScript  ');
+        console.log(result2); // 예상 출력 결과: 'javascript'
+
+        const result3 = removeSpacesAndLowerCase(' OpenAI is Amazing ');
+        console.log(result3); // 예상 출력 결과: 'openaiisamazing'
+
+
+    </script>
+    <script>
+        let something = [];
+        let num = 0;
+
+        function printNumbers() {
+            something.forEach(function(v,i){
+                if(num < 11){
+                    num++;
+                    something.push(num);
+                }
+                console.log(v);
+            })
+        // 여기에 포이치 반복문을 사용하여 1부터 10까지의 숫자를 출력하는 함수를 작성하세요.
+        }
+
+        // 테스트
+        printNumbers();
+        // 예상 출력 결과: 1 2 3 4 5 6 7 8 9 10
+
+    </script>
+</body>
+</html>
