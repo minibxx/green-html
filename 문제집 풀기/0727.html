@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 문제: 온라인 서점에서 책 정보를 관리하는 간단한 프로그램을 만들어야 합니다. 다음 조건에 따라 책 정보를 관리하는 자바스크립트 객체를 생성하고, 해당 객체를
+활용하는 함수를 작성하세요.
+
+조건:
+
+책 정보는 제목(title), 저자(author), 출판년도(year), 가격(price)으로 구성됩니다.책 정보를 추가하는 함수 addBook을 작성하세요. 이 함수는 책의 제목, 저자, 출판년도, 
+가격을 매개변수로 받아서 책 객체를 생성하고, 이를 책 목록에 추가합니다. 책 목록을 출력하는 함수 displayBooks를 작성하세요. 이 함수는 등록된 모든 책의 
+정보를 제목과 저자 형태로 출력합니다.
+ -->
+<script>
+    // 책 정보를 관리하는 객체
+    const bookManager = {
+      books: [],
+    
+      // 책 정보를 추가하는 함수
+      addBook: function(title, author, year, price) {
+        // 여기에 책 객체를 생성하고, 책 목록에 추가하는 로직을 작성하세요.
+        const book = {
+            title: title,
+            author: author,
+            year: year,
+            price: price
+        }
+        bookManager.books.push(book);
+      },
+    
+      // 책 목록을 출력하는 함수
+      displayBooks: function() {
+        bookManager.books.forEach(function(v,i){
+            console.log(`${v.title} - ${v.author}`)
+        })
+        // 여기에 책 목록을 제목과 저자 형태로 출력하는 로직을 작성하세요.
+      },
+    };
+
+    // 테스트
+    bookManager.addBook('JavaScript: The Good Parts', 'Douglas Crockford', 2008, 25);
+    bookManager.addBook('Eloquent JavaScript', 'Marijn Haverbeke', 2011, 30);
+    bookManager.addBook('You Don\'t Know JS', 'Kyle Simpson', 2014, 22);
+
+    bookManager.displayBooks();
+    // 예상 출력 결과:
+    // JavaScript: The Good Parts - Douglas Crockford
+    // Eloquent JavaScript - Marijn Haverbeke
+    // You Don't Know JS - Kyle Simpson
+</script>
+<script>
+/*     문제: 학생들의 성적을 배열로 관리하고 있습니다. 각 학생들의 성적에 대해 다음 조건에 따라 처리하는 함수를 작성하세요.
+
+        조건:
+
+        각 학생의 점수에 5점을 더합니다.
+        100점을 초과하는 경우, 최대 점수는 100점으로 처리합니다.
+        처리된 학생들의 점수를 새로운 배열로 반환합니다.
+ */
+    function adjustScores(scoresArr) {
+        const newArr=[];
+        scoresArr.forEach(function(v,i){
+            let result = v+5;
+            if(result>100){
+                result = 100;
+            }
+            newArr.push(result);
+        })
+
+        return newArr;
+        
+    // 여기에 forEach 메서드를 활용하여 문제 조건에 맞는 처리를 완성하세요.
+    }
+
+    // 테스트
+    const studentScores = [80, 95, 105, 90, 88];
+    const adjustedScores = adjustScores(studentScores);
+    console.log(adjustedScores); // 예상 출력 결과: [85, 100, 100, 95, 93]
+
+</script>
+<script>
+    // 상품 정보를 관리하는 객체
+const productManager = {
+  products: [],
+
+  // 상품 정보를 추가하는 함수
+  addProduct: function(name, price, stock) {
+    const product = {
+        name: name,
+        price: price,
+        stock: stock
+    } 
+    this.products.push(product);
+    // 여기에 상품 객체를 생성하고, 상품 목록에 추가하는 로직을 작성하세요.
+  },
+
+  // 상품 목록을 출력하는 함수
+  displayProducts: function() {
+    // 여기에 상품 목록을 이름과 가격 형태로 출력하는 로직을 작성하세요.
+    this.products.forEach(function(v,i){
+        console.log( `${v.name}-${v.price}`)
+    })
+  },
+};
+
+// 테스트
+productManager.addProduct('티셔츠', 15000, 50);
+productManager.addProduct('청바지', 30000, 30);
+productManager.addProduct('스니커즈', 50000, 20);
+
+productManager.displayProducts();
+// 예상 출력 결과:
+// 티셔츠 - 15000원
+// 청바지 - 30000원
+// 스니커즈 - 50000원
+
+</script>
+<script>
+    /* 문제: 쇼핑몰에서 상품 정보를 관리하는 프로그램을 개선해보려고 합니다. 다음 조건에 따라 상품 정보를 관리하는 자바스크립트 객체를 생성하고, 
+    해당 객체를 활용하는 함수를 작성하세요.
+
+    조건:
+
+    상품은 이름(name), 가격(price), 재고(stock)로 구성됩니다.
+    상품 목록을 객체의 속성(property)으로 관리합니다. 속성 이름은 상품의 이름으로 하고, 속성 값은 해당 상품 객체입니다.
+    상품 정보를 추가하는 함수 addProduct를 작성하세요. 이 함수는 상품의 이름을 키(key)로 받아서 해당 상품의 가격과 재고를 설정하고, 상품 목록에 추가합니다.
+    상품 목록에서 특정 상품을 검색하는 함수 findProduct를 작성하세요. 이 함수는 상품의 이름을 키(key)로 받아서 해당 상품이 존재하면 상품 객체를 반환하고, 
+    없으면 null을 반환합니다.
+    상품 목록을 출력하는 함수 displayProducts를 작성하세요. 이 함수는 등록된 모든 상품의 정보를 이름, 가격, 재고 형태로 출력합니다. */
+
+    
+    // 상품 정보를 관리하는 객체
+    const productManage = {
+    products: {},
+
+    // 상품 정보를 추가하는 함수
+    addProduct: function(name, price, stock) {
+        const list= {
+            name: name,
+        }
+        // 여기에 상품 객체를 생성하고, 상품 목록에 추가하는 로직을 작성하세요.
+    },
+
+    // 특정 상품을 검색하는 함수
+    findProduct: function(name) {
+        // 여기에 상품 목록에서 특정 상품을 검색하는 로직을 작성하세요.
+    },
+
+    // 상품 목록을 출력하는 함수
+    displayProducts: function() {
+        // 여기에 상품 목록을 이름, 가격, 재고 형태로 출력하는 로직을 작성하세요.
+    },
+    };
+
+    // 테스트
+    productManager.addProduct('티셔츠', 15000, 50);
+    productManager.addProduct('청바지', 30000, 30);
+    productManager.addProduct('스니커즈', 50000, 20);
+
+    const foundProduct = productManager.findProduct('티셔츠');
+    console.log(foundProduct); // 예상 출력 결과: { name: '티셔츠', price: 15000, stock: 50 }
+
+    productManager.displayProducts();
+// 예상 출력 결과:
+// 티셔츠 - 15000원 - 50개
+// 청바지 - 30000원 - 30개
+// 스니커즈 - 50000원 - 20개
+
+
+
+</script>
+<script>
+    function greetAndCheckAdult(name, age) {
+        console.log(`"안녕하세요, ${name}님!"`);
+        if(age>20){
+            console.log(`"성인입니다."`);
+        }else{
+            console.log(`"미성년자입니다."`);
+        }
+        
+    // 여기에 인사말과 성인 여부를 출력하는 함수를 작성하세요.
+    }
+
+    // 테스트
+    greetAndCheckAdult('Alice', 25);
+    // 예상 출력 결과:
+    // 안녕하세요, Alice님!
+    // 성인입니다.
+
+    greetAndCheckAdult('Bob', 15);
+    // 예상 출력 결과:
+    // 안녕하세요, Bob님!
+    // 미성년자입니다.
+</script>
+<script>
+    function findMinMax(numbers) {
+    // 여기에 최대값과 최소값을 찾아서 반환하는 함수를 작성하세요.
+        if(numbers.length == 0){
+            return("입력 배열이 비어 있습니다.");
+        }
+
+        let max = -Infinity;
+        numbers.forEach(function(v, i) {
+            if (v > max) {
+                max = v;
+            }
+        })
+        
+        let min = Infinity;
+        numbers.forEach(function(v,i){
+            if(min > v){
+                min = v;
+            }
+        })
+
+        return{
+            max: max,
+            min: min
+        }
+    }
+
+    // 테스트
+    const result1 = findMinMax([1, 3, 5, 7, 2, 8, 4]);
+    console.log(result1); // 예상 출력 결과: { max: 8, min: 1 }
+
+    const result2 = findMinMax([10, -3, 0, 15, -8, 9]);
+    console.log(result2); // 예상 출력 결과: { max: 15, min: -8 }
+
+    const result3 = findMinMax([]);
+    console.log(result3); // 예상 출력 결과: "입력 배열이 비어 있습니다."
+
+</script>
+</body>
+</html>
