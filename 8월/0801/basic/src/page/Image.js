@@ -1,4 +1,3 @@
-import React from 'react'
 import logo from '../logo.svg';
 
 function Image() {
@@ -6,7 +5,7 @@ function Image() {
     <>
         *src 폴더 안의 이미지 출력
         <img src={logo} /> 
-        <br />
+        
         *public 폴더 안의 이미지 출력
         <img src="./logo512.png" />
     </>

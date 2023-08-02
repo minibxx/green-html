@@ -2,28 +2,38 @@ import './App.scss';
 import Css from './page/Css';
 import Home from './page/Home';
 import Image from "./page/Image";
-
-
-//page //page 폴더 만들기 - Css.js 등이 들어있음
-//Css.js
+import Not from "./page/Not";
+import Router from "./page/Router";
+import Props from "./page/Props";
+import {Link,BrowserRouter,Route,Routes} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="wrap">
-      <header>
-        <nav style={{border: '1px solid green'}}> {/* 객체 속성 값 */}
-          <a href="#">css 활용</a>
-          <a href="#">router(페이지 이동)</a>
-          <a href="#">img 활용</a>
-        </nav>
-      </header>
-      <main>  
-        <Home />
-      </main>
-      <footer>  </footer>
-    </div>
+    <BrowserRouter> 
+      <div className="wrap">
+        <header>
+          <nav style={{border: '1px solid green'}}> {/* 객체 속성 값 */}
+            <Link to ="/">HOME</Link> {/* 여기서 url 바꿈 */}
+            <Link to ="/css">css 활용</Link>
+            <Link to ="/img">img 활용</Link>
+            <Link to ="/router" state='a100'>Router</Link>
+            <Link to ="/props">Props</Link>
+          </nav>
+        </header>
+        <main>  
+          <Routes>
+            <Route path='/' element={ <Home/> }  />{/* 바뀐 url에 <.js> 연결 */}
+            <Route path='/css' element={ <Css/> }  />
+            <Route path='/img' element={ <Image/> }  />
+            <Route path='/*' element={ <Not/> }  />
+            <Route path='/router' element={ <Router/> }  />
+            <Route path='/props*' element={ <Props data='1000' name='props'/> }  />
+          </Routes>  
+        </main>
+        <footer>  </footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
